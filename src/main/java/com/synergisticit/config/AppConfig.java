@@ -18,6 +18,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Configuration
 @PropertySource(value = {"classpath:db.properties"})
 @ComponentScan(basePackages = {"com.synergisticit"})
@@ -32,6 +35,7 @@ public class AppConfig implements WebMvcConfigurer {
 	
 	@Bean
 	public DataSource dataSource() {
+		log.debug("AppConfig.dataSource()......");
 		
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setUrl(env.getProperty("url"));
@@ -44,6 +48,7 @@ public class AppConfig implements WebMvcConfigurer {
 	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+		log.debug("AppConfig.entityManagerFactory()......");
 		
 		LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactory.setDataSource(dataSource());
@@ -66,6 +71,7 @@ public class AppConfig implements WebMvcConfigurer {
 	
 	@Bean
 	public JpaTransactionManager transactionManager() {
+		log.debug("AppConfig.transactionManager()......");
 		
 		JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
 		jpaTransactionManager.setDataSource(dataSource());
@@ -75,6 +81,7 @@ public class AppConfig implements WebMvcConfigurer {
 	
 	@Bean
 	public InternalResourceViewResolver internalResourceViewResolver() {
+		log.debug("AppConfig.internalResourceViewResolver()......");
 		
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setPrefix("/WEB-INF/views/");

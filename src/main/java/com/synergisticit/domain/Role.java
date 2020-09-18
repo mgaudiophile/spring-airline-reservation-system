@@ -11,6 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 @Entity
@@ -24,5 +25,6 @@ public class Role {
 	private String roleName;
 	
 	@ManyToMany(mappedBy = "roles")
+	@ToString.Exclude
 	private List<User> users = new ArrayList<>();
 }
