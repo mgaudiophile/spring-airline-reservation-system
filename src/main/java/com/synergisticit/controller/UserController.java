@@ -3,13 +3,14 @@ package com.synergisticit.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.synergisticit.domain.User;
-import com.synergisticit.service.RoleService;
 import com.synergisticit.service.UserService;
+import com.synergisticit.utilities.AirlineUtilities;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,23 +18,20 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class UserController {
 	
-	private RoleService roleService;
+	private AirlineUtilities airUtil;
 	private UserService userService;
 	
 	@Autowired
-	public UserController(RoleService roleService, UserService userService) {
-		
-		this.roleService = roleService;
+	public UserController(AirlineUtilities airUtil, UserService userService) {
+		this.airUtil = airUtil;
 		this.userService = userService;
 	}
 	
-	@RequestMapping("/userForm")
+	@GetMapping("/userForm")
 	public String userForm(Model model) {
 		log.debug("UserController.userForm().....");
 		
-		model.addAttribute("roles", roleService.findAll());
-		model.addAttribute("users", userService.findAll());
-		
+		airUtil.buildModel(model);
 		return "user";
 	}
 	
@@ -42,11 +40,37 @@ public class UserController {
 		log.debug("UserController.saveUser().....");
 		
 		userService.save(user);
-		
-		model.addAttribute("roles", roleService.findAll());
-		model.addAttribute("users", userService.findAll());
 		model.addAttribute("user", new User());
 		
+		airUtil.buildModel(model);
+		return "user";
+	}
+	
+	@GetMapping("/updateUser")
+	public String updateUser(User user, @RequestParam Long userId, Model model) {
+		log.debug("UserController.updateUser().....");
+		
+		if (userService.existsById(userId)) {
+			user = userService.findById(userId);
+			model.addAttribute("user", user);
+			model.addAttribute("selectedRoles", user.getRoles());
+		} else {
+			model.addAttribute("user", new User());
+		}
+		
+		airUtil.buildModel(model);
+		return "user";
+	}
+	
+	@GetMapping("/deleteUser")
+	public String deleteUser(User user, @RequestParam Long userId, Model model) {
+		log.debug("UserController.deleteUser().....");
+		
+		if (userService.existsById(userId)) {
+			userService.deleteById(userId);
+		}
+		
+		airUtil.buildModel(model);
 		return "user";
 	}
 	
