@@ -1,0 +1,42 @@
+[
+ {
+   "airlineId": 1,
+   "airlineCode": "ASA",
+   "airlineName": "Alaska Airlines"
+ },
+ {
+   "airlineId": 2,
+   "airlineCode": "AAY",
+   "airlineName": "Allegiant Airlines"
+ },
+ {
+   "airlineId": 3,
+   "airlineCode": "AAL",
+   "airlineName": "American Airlines"
+ },
+ {
+   "airlineId": 4,
+   "airlineCode": "DAL",
+   "airlineName": "Delta Air Lines"
+ },
+ {
+   "airlineId": 5,
+   "airlineCode": "HAL",
+   "airlineName": "Hawaiian Airlines"
+ },
+ {
+   "airlineId": 6,
+   "airlineCode": "SWA",
+   "airlineName": "Southwest Airlines"
+ },
+ {
+   "airlineId": 7,
+   "airlineCode": "JBU",
+   "airlineName": "JetBlue Airways"
+ },
+ {
+   "airlineId": 8,
+   "airlineCode": "UAL",
+   "airlineName": "United Airlines"
+ }
+]

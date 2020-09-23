@@ -9,18 +9,21 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.synergisticit.domain.Register;
 
 @Controller
 public class LoginController {
-
+	
 	@GetMapping(value={"", "/", "home"})
 	public String home() {
 		return "home";
 	}
 	
 	@GetMapping("/login")
-	public String login(@RequestParam(value = "logout", required = false) String logout,
+	public String loginUser(@RequestParam(value = "logout", required = false) String logout,
 			@RequestParam(value = "error", required = false) String error, HttpServletRequest request,
 			HttpServletResponse response, Model model) {
 		
@@ -36,7 +39,7 @@ public class LoginController {
 		}
 
 		if (error != null) {
-			message = "Either username or password is wrong.";
+			message = "Check your username and/or password.";
 		}
 
 		model.addAttribute("message", message);
@@ -46,5 +49,12 @@ public class LoginController {
 	@GetMapping("/403")
 	public String forbidden() {
 		return "403";
+	}
+	
+	
+	// --- MODEL ATTRIBUTES ---
+	@ModelAttribute
+	public Register register() {
+		return new Register();
 	}
 }

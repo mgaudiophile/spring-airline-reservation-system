@@ -2,8 +2,8 @@ package com.synergisticit.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.synergisticit.domain.Airport;
@@ -15,22 +15,42 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/admin")
-public class AdminController {
+public class AdminFlightController {
 
 	private AirlineUtilities airUtil;
 	
-	public AdminController(AirlineUtilities airUtil) {
+	public AdminFlightController(AirlineUtilities airUtil) {
 		this.airUtil = airUtil;
 	}
 	
-	@GetMapping
-	public String admin(Model model) {
-		log.debug("AdminController.admin().....");
+	@PostMapping("/adminSaveFlight")
+	public String adminSaveFlight(Model model) {
+		log.debug("AdminFlightController.adminSaveFlight().....");
+		
 		
 		airUtil.buildModel(model);
 		return "admin";
 	}
+	
+	@RequestMapping("/adminUpdateFlight")
+	public String adminUpdateFlight(Model model) {
+		log.debug("AdminFlightController.adminUpdateFlight().....");
+		
+		airUtil.buildModel(model);
+		return "admin";
+	}
+	
+	@RequestMapping("/adminDeleteFlight")
+	public String adminDeleteFlight(Model model) {
+		log.debug("AdminFlightController.adminDeleteFlight().....");
+		
+		
+		airUtil.buildModel(model);
+		return "admin";
+	}
+	
+	
+	// --- MODEL ATTRIBUTES ---
 	
 	@ModelAttribute
 	public User user() {

@@ -13,7 +13,9 @@ import org.springframework.stereotype.Service;
 
 import com.synergisticit.domain.Role;
 
-//@Slf4j
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
@@ -22,6 +24,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		log.debug("UserDetailsServiceImpl.loadUserByUsername()..... username: " + username);
 		
 		com.synergisticit.domain.User userEntity = userService.findByUsername(username);
 		Set<GrantedAuthority> authorities = new HashSet<>();
