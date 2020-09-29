@@ -21,6 +21,7 @@ import com.synergisticit.domain.Flight;
 import com.synergisticit.domain.Passenger;
 import com.synergisticit.domain.Payment;
 import com.synergisticit.domain.PrettyFlight;
+import com.synergisticit.domain.Profile;
 import com.synergisticit.domain.Register;
 import com.synergisticit.domain.Search;
 import com.synergisticit.domain.Ticket;
@@ -80,9 +81,8 @@ public class AirlineUtilities {
 	
 	public void buildCustomerModel(Model model) {
 		model.addAttribute("airportCodes", buildAirportMap(airportService.findAllAirportCode(), airportService.findAllAirportName()));
-		List<Ticket> tickets = ticketService.findAllByCustomerId(getCurrentCustomer().getCustomerId());
-		
 		model.addAttribute("listOfTickets", ticketService.findAllByCustomerId(getCurrentCustomer().getCustomerId()));
+		model.addAttribute("customer", getCurrentCustomer());
 	}
 	
 	public void initBookingModel(long flightId, long tickets, long total, Model model) {
@@ -95,6 +95,24 @@ public class AirlineUtilities {
 		passenger.setTicketNumber(passenger.getTicketNumber()-1L);
 		model.addAttribute("tickets", passenger.getTicketNumber());
 		model.addAttribute("passengerSaved", "Passenger "+getPassengersSize()+" has been saved.");
+	}
+	
+	public void updateProfile(Profile p) {
+		
+		Address a = new Address();
+		a.setAddressLine1(p.getAddressLine1());
+		a.setAddressLine2(p.getAddressLine2());
+		a.setCity(p.getCity());
+		a.setState(p.getState());
+		a.setZip(p.getZip());
+		
+		Customer c = getCurrentCustomer();
+		c.setCustomerAddress(a);
+		
+		c.setPhone(p.getMobile());
+		c.setEmail(p.getEmail());
+		
+		customerService.save(c);
 	}
 	
 	public User getCurrentUser() {

@@ -27,7 +27,7 @@
 					class="sr-only">(current)</span></a> <a class="nav-item nav-link"
 					href="${pageContext.request.contextPath}/itinerary">Itinerary</a> <a
 					class="nav-item nav-link"
-					href="${pageContext.request.contextPath}/account">Account</a> <a
+					href="${pageContext.request.contextPath}/profile">Profile</a> <a
 					class="nav-item nav-link"
 					href="${pageContext.request.contextPath}/login?logout">Logout</a>
 			</div>
