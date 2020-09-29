@@ -46,4 +46,9 @@ public class AirlineServiceImpl implements AirlineService {
 		airlineRepo.deleteById(id);
 	}
 
+	@Override
+	public Airline findByAirlineCode(String code) {
+		
+		return airlineRepo.findByAirlineCode(code);
+	}
 }

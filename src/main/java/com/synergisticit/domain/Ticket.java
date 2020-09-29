@@ -1,5 +1,8 @@
 package com.synergisticit.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 @Entity
@@ -20,16 +24,16 @@ public class Ticket {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ticketId;
 	
-	private String traveler;
-	
-	@Embedded
-	private Itinerary itinerary;
-	
-	private String price;
-	
-	private String email;
-	
 	@OneToOne
 	@JoinColumn(name = "customerId")
 	private Customer customer;
+	
+	@OneToOne
+	private Flight flight;
+	
+	private Long total;
+	
+	@Embedded
+	@ToString.Exclude
+	private List<Passenger> passengers = new ArrayList<>();
 }

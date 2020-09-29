@@ -1,0 +1,62 @@
+[
+  {
+    "userId": "1",
+    "username": "admin",
+    "password": "admin",
+    "email": "admin@admin.com",
+    "roles": [
+      {
+        "roleId": "1",
+        "roleName": "admin"
+      },
+      {
+        "roleId": "2",
+        "roleName": "customer"
+      }
+    ]
+  },
+  {
+    "userId": "2",
+    "username": "customer",
+    "password": "customer",
+    "email": "customer@customer.com",
+    "roles": [
+      {
+        "roleId": "2",
+        "roleName": "customer"
+      }
+    ]
+  },
+  {
+    "userId": "3",
+    "username": "dinesh",
+    "password": "dinesh",
+    "email": "dinesh@dinesh.com",
+    "roles": [
+      {
+        "roleId": "1",
+        "roleName": "admin"
+      },
+      {
+        "roleId": "2",
+        "roleName": "customer"
+      }
+    ]
+  },
+  {
+    "userId": "4",
+    "username": "santosh",
+    "password": "santosh",
+    "email": "santosh@santosh.com",
+    "roles": [
+      {
+        "roleId": "1",
+        "roleName": "admin"
+      },
+      {
+        "roleId": "2",
+        "roleName": "customer"
+      }
+    ]
+  }
+]

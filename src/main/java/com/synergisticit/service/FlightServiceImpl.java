@@ -46,7 +46,10 @@ public class FlightServiceImpl implements FlightService {
 		
 		flightRepo.deleteById(id);
 	}
-	
-	
 
+	@Override
+	public List<Flight> findByDepartureCode(long departId, long arriveId) {
+		
+		return flightRepo.findByDepartureCode(departId, arriveId);
+	}
 }

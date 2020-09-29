@@ -16,6 +16,7 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 @Entity
@@ -38,6 +39,7 @@ public class User {
 	@NotEmpty
 	private String email;
 	
+	@ToString.Exclude
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "user_role",
 				joinColumns = @JoinColumn(name = "user_id"),

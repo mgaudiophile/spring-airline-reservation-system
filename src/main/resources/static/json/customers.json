@@ -1,0 +1,122 @@
+[
+  {
+    "customerId": "1",
+    "name": "admin",
+    "customerAddress": {
+      "addressLine1": "1234 Main street",
+      "addressLine2": "#29",
+      "city": "Fremont",
+      "state": "CA",
+      "zip": "95350"
+    },
+    "phone": "555-555-5555",
+    "email": "admin@admin.com",
+    "ssn": "555-55-5555",
+    "gender": "F",
+    "user": {
+      "userId": "1",
+      "username": "admin",
+      "password": "admin",
+      "email": "admin@admin.com",
+      "roles": [
+        {
+          "roleId": "1",
+          "roleName": "admin"
+        },
+        {
+          "roleId": "2",
+          "roleName": "customer"
+        }
+      ]
+    }
+  },
+  {
+    "customerId": "2",
+    "name": "customer",
+    "customerAddress": {
+      "addressLine1": "1234 Main street",
+      "addressLine2": "#29",
+      "city": "Fremont",
+      "state": "CA",
+      "zip": "95350"
+    },
+    "phone": "555-555-5555",
+    "email": "customer@customer.com",
+    "ssn": "555-55-5555",
+    "gender": "F",
+    "user": {
+      "userId": "2",
+      "username": "customer",
+      "password": "customer",
+      "email": "customer@customer.com",
+      "roles": [
+        {
+          "roleId": "2",
+          "roleName": "customer"
+        }
+      ]
+    }
+  },
+  {
+    "customerId": "3",
+    "name": "dinesh",
+    "customerAddress": {
+      "addressLine1": "1234 Main street",
+      "addressLine2": "#29",
+      "city": "Fremont",
+      "state": "CA",
+      "zip": "95350"
+    },
+    "phone": "555-555-5555",
+    "email": "dinesh@dinesh.com",
+    "ssn": "555-55-5555",
+    "gender": "M",
+    "user": {
+      "userId": "3",
+      "username": "dinesh",
+      "password": "dinesh",
+      "email": "dinesh@dinesh.com",
+      "roles": [
+        {
+          "roleId": "1",
+          "roleName": "admin"
+        },
+        {
+          "roleId": "2",
+          "roleName": "customer"
+        }
+      ]
+    }
+  },
+  {
+    "customerId": "4",
+    "name": "santosh",
+    "customerAddress": {
+      "addressLine1": "1234 Main street",
+      "addressLine2": "#29",
+      "city": "Fremont",
+      "state": "CA",
+      "zip": "95350"
+    },
+    "phone": "555-555-5555",
+    "email": "santosh@santosh.com",
+    "ssn": "555-55-5555",
+    "gender": "M",
+    "user": {
+      "userId": "4",
+      "username": "santosh",
+      "password": "santosh",
+      "email": "santosh@santosh.com",
+      "roles": [
+        {
+          "roleId": "1",
+          "roleName": "admin"
+        },
+        {
+          "roleId": "2",
+          "roleName": "customer"
+        }
+      ]
+    }
+  }
+]

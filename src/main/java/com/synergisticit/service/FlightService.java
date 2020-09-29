@@ -13,4 +13,6 @@ public interface FlightService {
 	boolean existsById(long id);
 	
 	void deleteById(long id);
+	
+	List<Flight> findByDepartureCode(long departId, long arriveId);
 }

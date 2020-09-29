@@ -13,4 +13,6 @@ public interface AirlineService {
 	boolean existsById(long id);
 	
 	void deleteById(long id);
+	
+	Airline findByAirlineCode(String code);
 }

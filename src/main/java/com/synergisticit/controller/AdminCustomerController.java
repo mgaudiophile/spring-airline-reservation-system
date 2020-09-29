@@ -2,6 +2,7 @@ package com.synergisticit.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,72 +18,66 @@ import com.synergisticit.domain.Airport;
 import com.synergisticit.domain.Customer;
 import com.synergisticit.domain.Flight;
 import com.synergisticit.domain.User;
-import com.synergisticit.service.UserService;
+import com.synergisticit.service.CustomerService;
 import com.synergisticit.utilities.AirlineUtilities;
-import com.synergisticit.validator.AdminUserValidator;
+import com.synergisticit.validator.AdminCustomerValidator;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-public class AdminUserController {
+public class AdminCustomerController {
 
 	private AirlineUtilities airUtil;
-	private UserService userService;
-	private AdminUserValidator adminUserValid;
+	private CustomerService custService;
+	private AdminCustomerValidator custValid;
 	
-	public AdminUserController(AirlineUtilities airUtil, 
-								UserService userService, 
-								AdminUserValidator adminUserValid) {
-		
+	@Autowired
+	public AdminCustomerController(AirlineUtilities airUtil, 
+									CustomerService custService, 
+									AdminCustomerValidator custValid) {
 		this.airUtil = airUtil;
-		this.userService = userService;
-		this.adminUserValid = adminUserValid;
-	}
-
-	@InitBinder("user")
-	public void initAdminUserValidatorBinder(WebDataBinder binder) {
-		binder.addValidators(adminUserValid);
+		this.custService = custService;
+		this.custValid = custValid;
 	}
 	
+	@InitBinder("customer")
+	public void initAdminCustomerValidator(WebDataBinder binder) {
+		binder.addValidators(custValid);
+	}
 	
-	// --- MAPPINGS ---
-	
-	@PostMapping("/adminSaveUser")
-	public String adminSaveUser(@Valid @ModelAttribute User user, BindingResult br, Model model) {
-		log.debug("AdminUserController.adminSaveUser().....");
+	@PostMapping("/adminSaveCustomer")
+	public String adminSaveCustomer(@Valid @ModelAttribute Customer customer, BindingResult br, Model model) {
+		log.debug("AdminCustomerController.adminSaveCustomer().....");
 		
 		if (!br.hasErrors()) {
-			userService.save(user);
-			model.addAttribute("user", new User());
-		}
+			custService.save(customer);
+			model.addAttribute("customer", new Customer());
+		} 
 		
 		airUtil.buildModel(model);
 		return "admin";
 	}
 	
-	@RequestMapping("/adminUpdateUser")
-	public String adminUpdateUser(User user, @RequestParam long userId, Model model) {
-		log.debug("AdminUserController.adminUpdateUser().....");
-		
-		if (userService.existsById(userId)) {
-			user = userService.findById(userId);
-			model.addAttribute("selectedRoles", user.getRoles());
-			model.addAttribute("user", user);
+	@RequestMapping("/adminUpdateCustomer")
+	public String adminUpdateCustomer(Customer customer, @RequestParam long customerId, Model model) {
+	
+		if (custService.existsById(customerId)) {
+			customer = custService.findById(customerId);
+			model.addAttribute("customer", customer);
 		} else {
-			model.addAttribute("user", new User());
+			model.addAttribute("customer", new Customer());
 		}
 		
 		airUtil.buildModel(model);
 		return "admin";
 	}
 	
-	@RequestMapping("/adminDeleteUser")
-	public String adminDeleteUser(User user, @RequestParam long userId, Model model) {
-		log.debug("AdminUserController.adminDeleteUser().....");
+	@RequestMapping("/adminDeleteCustomer")
+	public String adminDeleteCustomer(Customer customer, @RequestParam long customerId, Model model) {
 		
-		userService.deleteById(userId);
-		model.addAttribute("user", new User());
+		custService.deleteById(customerId);
+		model.addAttribute("customer", new Customer());
 		airUtil.buildModel(model);
 		
 		return "admin";

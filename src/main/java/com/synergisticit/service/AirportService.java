@@ -14,5 +14,8 @@ public interface AirportService {
 	
 	void deleteById(long id);
 	
-	List<Airport> search(String keyword);
+	Airport findByAirportCode(String code);
+	
+	List<String> findAllAirportCode();
+	List<String> findAllAirportName();
 }

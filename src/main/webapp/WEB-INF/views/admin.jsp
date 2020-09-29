@@ -7,17 +7,15 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 
 <title>Admin</title>
 
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <style>
 .error {
 	color: red;
@@ -55,6 +53,8 @@
 				href="#flights">Flights</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
 				href="#airports">Airports</a></li>
+			<li class="nav-item"><a class="nav-link" data-toggle="tab"
+				href="#airlines">Airlines</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
 				href="#customers">Customers</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
@@ -164,29 +164,34 @@
 							<td><frm:errors path="flightNumber" cssClass="error" /></td>
 						</tr>
 						<tr>
-							<td>Airline:</td>
-							<td><frm:input path="airline" /></td>
-							<td><frm:errors path="airline" cssClass="error" /></td>
+							<td>Airline Id:</td>
+							<td><frm:input path="airline.airlineId" /></td>
+							<td><frm:errors path="airline.airlineId" cssClass="error" /></td>
 						</tr>
 						<tr>
-							<td>Depart From:</td>
-							<td><frm:input path="departFrom" /></td>
-							<td><frm:errors path="departFrom" cssClass="error" /></td>
+							<td>Departure Airport Id:</td>
+							<td><frm:input path="departFrom.airportId" /></td>
+							<td><frm:errors path="departFrom.airportId" cssClass="error" /></td>
 						</tr>
 						<tr>
-							<td>Arrive At:</td>
-							<td><frm:input path="arriveAt" /></td>
-							<td><frm:errors path="arriveAt" cssClass="error" /></td>
+							<td>Arrival Airport Id:</td>
+							<td><frm:input path="arriveAt.airportId" /></td>
+							<td><frm:errors path="arriveAt.airportId" cssClass="error" /></td>
 						</tr>
 						<tr>
-							<td>Departure Time:</td>
-							<td><frm:input path="departureDateTime" /></td>
+							<td>Departure Date Time:</td>
+							<td><frm:input path="departureDateTime" placeHolder="yyyy-MM-dd HH:mm:ss" /></td>
 							<td><frm:errors path="departureDateTime" cssClass="error" /></td>
 						</tr>
 						<tr>
-							<td>Arrival Time:</td>
-							<td><frm:input path="arrivalDateTime" /></td>
+							<td>Arrival Date Time:</td>
+							<td><frm:input path="arrivalDateTime" placeHolder="yyyy-MM-dd HH:mm:ss" /></td>
 							<td><frm:errors path="arrivalDateTime" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td>Price:</td>
+							<td><frm:input path="price" /></td>
+							<td><frm:errors path="price" cssClass="error" /></td>
 						</tr>
 						<tr>
 							<td align="right" colspan="2"><input
@@ -196,16 +201,20 @@
 				</frm:form>
 				<br><br>
 				<div class="mx-auto" style="width: 1100px;">
-					<table class="table table-striped">
+					<table class="table table-striped table-sm">
 						<thead class="thead-dark">
 							<tr>
-								<th>Flight Id</th>
-								<th>Flight Number</th>
+								<th>Id</th>
+								<th>Flight#</th>
+								<th>Airline Id</th>
 								<th>Airline</th>
+								<th>Depart Id</th>
+								<th>IATA</th>
+								<th>Arrive Id</th>
+								<th>IATA</th>
+								<th>Date</th>
 								<th>Depart</th>
 								<th>Arrive</th>
-								<th>Depart Time</th>
-								<th>Arrive Time</th>
 								<th>Price</th>
 								<th colspan="2">Action</th>
 							</tr>
@@ -215,11 +224,15 @@
 							<tr>
 								<td>${ flight.flightId }</td>
 								<td>${ flight.flightNumber }</td>
-								<td>${ flight.airline }</td>
-								<td>${ flight.departFrom }</td>
-								<td>${ flight.arriveAt }</td>
-								<td>${ flight.departureDateTime }</td>
-								<td>${ flight.arrivalDateTime }</td>
+								<td>${ flight.airline.airlineId }</td>
+								<td>${ flight.airline.airlineName }</td>
+								<td>${ flight.departFrom.airportId }</td>
+								<td>${ flight.departFrom.airportCode }</td>
+								<td>${ flight.arriveAt.airportId }</td>
+								<td>${ flight.arriveAt.airportCode }</td>
+								<td>${ flight.prettyFlight.date }</td>
+								<td>${ flight.prettyFlight.depart }</td>
+								<td>${ flight.prettyFlight.arrive }</td>
 								<td>${ flight.price }</td>
 								<td><a
 									href="adminDeleteFlight?flightId=${ flight.flightId }">delete</a></td>
@@ -253,16 +266,6 @@
 							<td><frm:input path="airportCode" /></td>
 							<td><frm:errors path="airportCode" cssClass="error" /></td>
 						</tr>
-<!-- 						<tr> -->
-<!-- 							<td>Address Line 1:</td> -->
-<%-- 							<td><frm:input path="airportAddress.addressLine1" /></td> --%>
-<%-- 							<td><frm:errors path="airportAddress.addressLine1" cssClass="error" /></td> --%>
-<!-- 						</tr> -->
-<!-- 						<tr> -->
-<!-- 							<td>Address Line 2:</td> -->
-<%-- 							<td><frm:input path="airportAddress.addressLine2" /></td> --%>
-<%-- 							<td><frm:errors path="airportAddress.addressLine2" cssClass="error" /></td> --%>
-<!-- 						</tr> -->
 						<tr>
 							<td>City:</td>
 							<td><frm:input path="airportCity" /></td>
@@ -273,11 +276,6 @@
 							<td><frm:input path="airportState" /></td>
 							<td><frm:errors path="airportState" cssClass="error" /></td>
 						</tr>
-<!-- 						<tr> -->
-<!-- 							<td>Phone:</td> -->
-<%-- 							<td><frm:input path="airportPhone" /></td> --%>
-<%-- 							<td><frm:errors path="airportPhone" cssClass="error" /></td> --%>
-<!-- 						</tr> -->
 						<tr>
 							<td align="right" colspan="2"><input
 								class="btn btn-primary btn-lg" type="submit" value="submit" /></td>
@@ -292,11 +290,8 @@
 								<th>Airport Id</th>
 								<th>Name</th>
 								<th>Code</th>
-<!-- 								<th>Address Line 1</th> -->
-<!-- 								<th>Address Line 2</th> -->
 								<th>City</th>
 								<th>State</th>
-<!-- 								<th>Phone</th> -->
 								<th colspan="2">Action</th>
 							</tr>
 						</thead>
@@ -306,11 +301,8 @@
 								<td>${ airport.airportId }</td>
 								<td>${ airport.airportName }</td>
 								<td>${ airport.airportCode }</td>
-<%-- 								<td>${ airport.airportAddress.addressLine1 }</td> --%>
-<%-- 								<td>${ airport.airportAddress.addressLine2 }</td> --%>
-								<td>${ airportCity }</td>
-								<td>${ airportState }</td>
-<%-- 								<td>${ airport.airportPhone }</td> --%>
+								<td>${ airport.airportCity }</td>
+								<td>${ airport.airportState }</td>
 								<td><a href="adminDeleteAirport?airportId=${ airport.airportId }">delete</a></td>
 								<td><a href="adminUpdateAirport?airportId=${ airport.airportId }">update</a></td>
 							</tr>
@@ -318,21 +310,220 @@
 					</table>
 				</div>
 			</div><!-- end airports panel -->
+			
+			<div id="airlines" class="container tab-pane fade">
+				<br> <br>
+				<h3>Airlines</h3>
+				<br>
+				<frm:form action="adminSaveAirline" method="POST" modelAttribute="airline">
+					<table>
+						<tr>
+							<td>Id:</td>
+							<td><frm:input path="airlineId" /></td>
+							<td><frm:errors path="airlineId" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td>Airline:</td>
+							<td><frm:input path="airlineName" /></td>
+							<td><frm:errors path="airlineName" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td>Code:</td>
+							<td><frm:input path="airlineCode" /></td>
+							<td><frm:errors path="airlineCode" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td align="right" colspan="2"><input
+								class="btn btn-primary btn-lg" type="submit" value="submit" /></td>
+						</tr>
+					</table>
+				</frm:form>
+
+				<br> <br>
+
+				<div class="mx-auto" style="width: 1000px;">
+					<table class="table table-striped table-sm">
+						<thead class="thead-dark">
+							<tr>
+								<th>Id</th>
+								<th>Airline</th>
+								<th>Code</th>
+								<th colspan="2">Action</th>
+							</tr>
+						</thead>
+
+						<c:forEach items="${ airlines }" var="airline">
+							<tr>
+								<td>${ airline.airlineId }</td>
+								<td>${ airline.airlineName }</td>
+								<td>${ airline.airlineCode }</td>
+								<td><a
+									href="${pageContext.request.contextPath}/adminDeleteAirline?airlineId=${ airline.airlineId }">delete</a></td>
+								<td><a
+									href="${pageContext.request.contextPath}/adminUpdateAirline?airlineId=${ airline.airlineId }">update</a></td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
+			</div><!-- end airlines panel -->
 
 			<div id="customers" class="container tab-pane fade">
 				<br> <br>
 				<h3>Customers</h3>
 				<br>
-			</div>
+				<frm:form action="adminSaveCustomer" method="POST"
+					modelAttribute="customer">
+					<table>
+						<tr>
+							<td>Customer Id:</td>
+							<td><frm:input path="customerId" /></td>
+							<td><frm:errors path="customerId" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td>Name:</td>
+							<td><frm:input path="name" /></td>
+							<td><frm:errors path="name" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td>User Id:</td>
+							<td><frm:input path="user.userId" /></td>
+							<td><frm:errors path="user.userId" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td>Address Line 1:</td>
+							<td><frm:input path="customerAddress.addressLine1" /></td>
+							<td><frm:errors path="customerAddress.addressLine1"
+									cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td>Address Line 2:</td>
+							<td><frm:input path="customerAddress.addressLine2" /></td>
+							<td><frm:errors path="customerAddress.addressLine2"
+									cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td>City:</td>
+							<td><frm:input path="customerAddress.city" /></td>
+							<td><frm:errors path="customerAddress.city" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td>State:</td>
+							<td><frm:input path="customerAddress.state" /></td>
+							<td><frm:errors path="customerAddress.state"
+									cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td>Phone:</td>
+							<td><frm:input path="phone" /></td>
+							<td><frm:errors path="phone" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td>Email:</td>
+							<td><frm:input path="email" /></td>
+							<td><frm:errors path="email" cssClass="error" /></td>
+						</tr>
+
+						<tr>
+							<td>SSN:</td>
+							<td><frm:input path="ssn" /></td>
+							<td><frm:errors path="ssn" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td>Gender:</td>
+							<td><frm:input path="gender" /></td>
+							<td><frm:errors path="gender" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td>DOB:</td>
+							<td><frm:input type="date" path="dob" /></td>
+							<td><frm:errors path="dob" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td colspan="2" align="right"><input
+								class="btn btn-primary btn-lg" type="submit" value="submit" /></td>
+						</tr>
+					</table>
+				</frm:form>
+				<br> <br>
+
+				<table class="table table-sm table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th>Customer Id</th>
+							<th>Name</th>
+							<th>User Id</th>
+							<th>Address Line 1</th>
+							<th>Address Line 2</th>
+							<th>City</th>
+							<th>State</th>
+							<th>Mobile</th>
+							<th>Phone</th>
+							<th>Email</th>
+							<th>SSN</th>
+							<th>Gender</th>
+							<th>DOB</th>
+							<th colspan="2">Action</th>
+						</tr>
+					</thead>
+
+					<c:forEach items="${ customers }" var="customer">
+						<tr>
+							<td>${ customer.customerId }</td>
+							<td>${ customer.name }</td>
+							<td>${ customer.user.userId }</td>
+							<td>${ customer.customerAddress.addressLine1 }</td>
+							<td>${ customer.customerAddress.addressLine2 }</td>
+							<td>${ customer.customerAddress.city }</td>
+							<td>${ customer.customerAddress.state }</td>
+							<td>${ customer.phone }</td>
+							<td>${ customer.email }</td>
+							<td>${ customer.ssn }</td>
+							<td>${ customer.gender }</td>
+							<td>${ customer.dob }</td>
+							<td><a
+								href="${pageContext.request.contextPath}/adminDeleteCustomer?customerId=${ customer.customerId }">delete</a></td>
+							<td><a
+								href="${pageContext.request.contextPath}/adminUpdateCustomer?customerId=${ customer.customerId }">update</a></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div><!-- end customers panel -->
 			
 			<div id="transactions" class="container tab-pane fade">
 				<br> <br>
 				<h3>Transactions</h3>
 				<br>
+				<table class="table table-sm table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th>Id</th>
+							<th>Customer Id</th>
+							<th>Name</th>
+							<th>Flight Id</th>
+							<th colspan="2">Action</th>
+						</tr>
+					</thead>
+
+					<c:forEach items="${ listOfTickets }" var="ticket">
+						<tr>
+							<td>${ ticket.ticketId }</td>
+							<td>${ ticket.customer.customerId }</td>
+							<td>${ ticket.customer.name }</td>
+							<td>${ ticket.flight.flightId }</td>
+						
+						</tr>
+					</c:forEach>
+				</table>
 			</div>
 			
 		</div><!-- end tab content -->
 	</div><!-- end container -->
 
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

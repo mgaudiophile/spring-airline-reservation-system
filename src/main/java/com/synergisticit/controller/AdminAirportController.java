@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.synergisticit.domain.Airline;
 import com.synergisticit.domain.Airport;
+import com.synergisticit.domain.Customer;
 import com.synergisticit.domain.Flight;
 import com.synergisticit.domain.User;
 import com.synergisticit.service.AirportService;
@@ -99,5 +101,15 @@ public class AdminAirportController {
 	@ModelAttribute
 	public Airport airport() {
 		return new Airport();
+	}
+	
+	@ModelAttribute
+	public Airline airline() {
+		return new Airline();
+	}
+	
+	@ModelAttribute
+	public Customer customer() {
+		return new Customer();
 	}
 }

@@ -34,11 +34,23 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		return opt.isPresent() ? opt.get() : null;
 	}
+	
+	@Override
+	public boolean existsById(long id) {
+		
+		return customerRepo.existsById(id);
+	}
 
 	@Override
 	public void deleteById(long id) {
 		
 		customerRepo.deleteById(id);
+	}
+
+	@Override
+	public Customer findByUserId(long userId) {
+		
+		return customerRepo.findByUserId(userId);
 	}
 
 }

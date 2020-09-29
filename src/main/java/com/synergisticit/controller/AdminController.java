@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.synergisticit.domain.Airline;
 import com.synergisticit.domain.Airport;
+import com.synergisticit.domain.Customer;
 import com.synergisticit.domain.Flight;
 import com.synergisticit.domain.User;
 import com.synergisticit.utilities.AirlineUtilities;
@@ -32,6 +34,9 @@ public class AdminController {
 		return "admin";
 	}
 	
+	
+	// --- MODEL ATTRIBUTES ---
+	
 	@ModelAttribute
 	public User user() {
 		return new User();
@@ -45,5 +50,15 @@ public class AdminController {
 	@ModelAttribute
 	public Airport airport() {
 		return new Airport();
+	}
+	
+	@ModelAttribute
+	public Airline airline() {
+		return new Airline();
+	}
+	
+	@ModelAttribute
+	public Customer customer() {
+		return new Customer();
 	}
 }

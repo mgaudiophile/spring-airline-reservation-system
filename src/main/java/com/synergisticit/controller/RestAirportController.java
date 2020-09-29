@@ -2,8 +2,6 @@ package com.synergisticit.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,12 +36,5 @@ public class RestAirportController {
 		}
 		
 		return new ResponseEntity<List<Airport>>(airports, HttpStatus.OK);
-	}
-	
-	@GetMapping("/api/airports/search")
-	public List<String> apiAirportSearch(HttpServletRequest request) {
-		List<Airport> airports = airportService.search(request.getParameter("term"));
-		
-		return airUtil.getSuggestions(airports);
 	}
 }

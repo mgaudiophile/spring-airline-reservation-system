@@ -6,4 +6,5 @@ import com.synergisticit.domain.Airline;
 
 public interface AirlineRepository extends JpaRepository<Airline, Long> {
 
+	Airline findByAirlineCode(String code);
 }

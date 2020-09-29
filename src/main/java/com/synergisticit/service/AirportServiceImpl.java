@@ -48,9 +48,21 @@ public class AirportServiceImpl implements AirportService {
 	}
 
 	@Override
-	public List<Airport> search(String keyword) {
+	public Airport findByAirportCode(String code) {
 		
-		return airportRepo.search(keyword);
+		return airportRepo.findByAirportCode(code);
+	}
+
+	@Override
+	public List<String> findAllAirportCode() {
+		
+		return airportRepo.findAllAirportCode();
+	}
+
+	@Override
+	public List<String> findAllAirportName() {
+		
+		return airportRepo.findAllAirportName();
 	}
 
 }

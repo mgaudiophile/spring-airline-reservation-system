@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 @Entity
@@ -26,6 +27,7 @@ public class Airport {
 	private String airportCity;
 	private String airportState;
 	
+	@ToString.Exclude
 	@OneToMany
 	private List<Airport> flights = new ArrayList<>();
 }

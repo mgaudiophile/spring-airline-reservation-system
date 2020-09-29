@@ -10,6 +10,9 @@ public interface CustomerService {
 	
 	List<Customer> findAll();
 	Customer findById(long id);
+	boolean existsById(long id);
 	
 	void deleteById(long id);
+	
+	Customer findByUserId(long userId);
 }

@@ -17,72 +17,70 @@ import com.synergisticit.domain.Airport;
 import com.synergisticit.domain.Customer;
 import com.synergisticit.domain.Flight;
 import com.synergisticit.domain.User;
-import com.synergisticit.service.UserService;
+import com.synergisticit.service.AirlineService;
 import com.synergisticit.utilities.AirlineUtilities;
-import com.synergisticit.validator.AdminUserValidator;
+import com.synergisticit.validator.AdminAirlineValidator;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-public class AdminUserController {
+public class AdminAirlineController {
 
 	private AirlineUtilities airUtil;
-	private UserService userService;
-	private AdminUserValidator adminUserValid;
+	private AirlineService airlineService;
+	private AdminAirlineValidator airlineValid;
 	
-	public AdminUserController(AirlineUtilities airUtil, 
-								UserService userService, 
-								AdminUserValidator adminUserValid) {
-		
+	public AdminAirlineController(AirlineUtilities airUtil, 
+									AirlineService airlineService,
+									AdminAirlineValidator airlineValid) {
 		this.airUtil = airUtil;
-		this.userService = userService;
-		this.adminUserValid = adminUserValid;
+		this.airlineService = airlineService;
+		this.airlineValid = airlineValid;
 	}
-
-	@InitBinder("user")
-	public void initAdminUserValidatorBinder(WebDataBinder binder) {
-		binder.addValidators(adminUserValid);
+	
+	@InitBinder("airline")
+	public void initAdminAirlineValidatorBinder(WebDataBinder binder) {
+		binder.addValidators(airlineValid);
 	}
 	
 	
 	// --- MAPPINGS ---
 	
-	@PostMapping("/adminSaveUser")
-	public String adminSaveUser(@Valid @ModelAttribute User user, BindingResult br, Model model) {
-		log.debug("AdminUserController.adminSaveUser().....");
+	@PostMapping("/adminSaveAirline")
+	public String adminSaveAirline(@Valid @ModelAttribute Airline airline, BindingResult br, Model model) {
+		log.debug("AdminAirlineController.adminSaveAirline().....");
 		
 		if (!br.hasErrors()) {
-			userService.save(user);
-			model.addAttribute("user", new User());
+			airlineService.save(airline);
+			model.addAttribute("airline", new Airline());
 		}
 		
 		airUtil.buildModel(model);
 		return "admin";
 	}
 	
-	@RequestMapping("/adminUpdateUser")
-	public String adminUpdateUser(User user, @RequestParam long userId, Model model) {
-		log.debug("AdminUserController.adminUpdateUser().....");
+	@RequestMapping("/adminUpdateAirline")
+	public String adminUpdateAirline(Airline airline, @RequestParam long airlineId, Model model) {
+		log.debug("AdminAirlineController.adminUpdateAirline().....");
 		
-		if (userService.existsById(userId)) {
-			user = userService.findById(userId);
-			model.addAttribute("selectedRoles", user.getRoles());
-			model.addAttribute("user", user);
+		if (airlineService.existsById(airlineId)) {
+			airline = airlineService.findById(airlineId);
+			model.addAttribute("airline", airline);
 		} else {
-			model.addAttribute("user", new User());
+			model.addAttribute("airline", new Airline());
 		}
 		
 		airUtil.buildModel(model);
 		return "admin";
 	}
 	
-	@RequestMapping("/adminDeleteUser")
-	public String adminDeleteUser(User user, @RequestParam long userId, Model model) {
-		log.debug("AdminUserController.adminDeleteUser().....");
+	@RequestMapping("/adminDeleteAirline")
+	public String adminDeleteAirline(Airline airline, @RequestParam long airlineId, Model model) {
+		log.debug("AdminAirlineController.adminDeleteAirline().....");
 		
-		userService.deleteById(userId);
-		model.addAttribute("user", new User());
+		airlineService.deleteById(airlineId);
+		model.addAttribute("airline", new Airline());
 		airUtil.buildModel(model);
 		
 		return "admin";

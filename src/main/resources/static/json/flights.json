@@ -1,0 +1,314 @@
+[
+  {
+    "flightId": "1",
+    "flightNumber": "UAL110",
+    "airline": {
+      "airlineId": "8",
+      "airlineName": "United Airlines",
+      "airlineCode": "UAL"
+    },
+    "departFrom": {
+      "airportId": "2",
+      "airportName": "Los Angeles International Airport",
+      "airportCode": "LAX",
+      "airportCity": "Los Angeles",
+      "airportState": "CA" 
+    },
+    "arriveAt": {
+      "airportId": "7",
+      "airportName": "San Francisco International Airport",
+      "airportCode": "SFO",
+      "airportCity": "San Francisco",
+      "airportState": "CA"
+    },
+	"departureDateTime": "2020-10-01 07:30:00",
+	"arrivalDateTime": "2020-10-01 08:30:00",
+    "price": "100"
+  },
+  {
+    "flightId": "2",
+    "flightNumber": "UAL120",
+    "airline": {
+      "airlineId": "8",
+      "airlineName": "United Airlines",
+      "airlineCode": "UAL"
+    },
+    "departFrom": {
+      "airportId": "2",
+      "airportName": "Los Angeles International Airport",
+      "airportCode": "LAX",
+      "airportCity": "Los Angeles",
+      "airportState": "CA" 
+    },
+    "arriveAt": {
+      "airportId": "8",
+      "airportName": "Seattle-Tacoma International Airport",
+      "airportCode": "SEA",
+      "airportCity": "Seattle",
+      "airportState": "WA"
+    },
+	"departureDateTime": "2020-10-02 09:00:00",
+	"arrivalDateTime": "2020-10-02 12:00:00",
+    "price": "125"
+  },
+  {
+    "flightId": "3",
+    "flightNumber": "UAL130",
+    "airline": {
+      "airlineId": "8",
+      "airlineName": "United Airlines",
+      "airlineCode": "UAL"
+    },
+    "departFrom": {
+      "airportId": "2",
+      "airportName": "Los Angeles International Airport",
+      "airportCode": "LAX",
+      "airportCity": "Los Angeles",
+      "airportState": "CA" 
+    },
+    "arriveAt": {
+      "airportId": "3",
+      "airportName": "O'Hare International Airport",
+      "airportCode": "ORD",
+      "airportCity": "Chicago",
+      "airportState": "IL"
+    },
+	"departureDateTime": "2020-10-02 10:00:00",
+	"arrivalDateTime": "2020-10-02 12:35:00",
+    "price": "145"
+  },
+  {
+    "flightId": "4",
+    "flightNumber": "SWA110",
+    "airline": {
+      "airlineId": "6",
+      "airlineName": "Southwest Airlines",
+      "airlineCode": "SWA"
+    },
+    "departFrom": {
+      "airportId": "3",
+      "airportName": "O'Hare International Airport",
+      "airportCode": "ORD",
+      "airportCity": "Chicago",
+      "airportState": "IL" 
+    },
+    "arriveAt": {
+      "airportId": "9",
+      "airportName": "McCarran International Airport",
+      "airportCode": "LAS",
+      "airportCity": "Las Vegas",
+      "airportState": "NV"
+    },
+	"departureDateTime": "2020-10-03 16:15:00",
+	"arrivalDateTime": "2020-10-03 19:30:00",
+    "price": "170"
+  },
+  {
+    "flightId": "5",
+    "flightNumber": "SWA120",
+    "airline": {
+      "airlineId": "6",
+      "airlineName": "Southwest Airlines",
+      "airlineCode": "SWA"
+    },
+    "departFrom": {
+      "airportId": "3",
+      "airportName": "O'Hare International Airport",
+      "airportCode": "ORD",
+      "airportCity": "Chicago",
+      "airportState": "IL" 
+    },
+    "arriveAt": {
+      "airportId": "10",
+      "airportName": "Orlando International Airport",
+      "airportCode": "MCO",
+      "airportCity": "Orlando",
+      "airportState": "FL"
+    },
+	"departureDateTime": "2020-10-01 13:00:00",
+	"arrivalDateTime": "2020-10-01 16:15:00",
+    "price": "182"
+  },
+  {
+    "flightId": "6",
+    "flightNumber": "SWA130",
+    "airline": {
+      "airlineId": "6",
+      "airlineName": "Southwest Airlines",
+      "airlineCode": "SWA"
+    },
+    "departFrom": {
+      "airportId": "3",
+      "airportName": "O'Hare International Airport",
+      "airportCode": "ORD",
+      "airportCity": "Chicago",
+      "airportState": "IL" 
+    },
+    "arriveAt": {
+      "airportId": "1",
+      "airportName": "Hartsfield–Jackson Atlanta International Airport",
+      "airportCode": "ATL",
+      "airportCity": "Atlanta",
+      "airportState": "GA"
+    },
+	"departureDateTime": "2020-10-02 14:00:00",
+	"arrivalDateTime": "2020-10-02 16:45:00",
+    "price": "180"
+  },
+  {
+    "flightId": "7",
+    "flightNumber": "AAL110",
+    "airline": {
+      "airlineId": "3",
+      "airlineName": "American Airlines",
+      "airlineCode": "AAL"
+    },
+    "departFrom": {
+      "airportId": "6",
+      "airportName": "John F. Kennedy International Airport",
+      "airportCode": "JFK",
+      "airportCity": "New York",
+      "airportState": "NY"
+    },
+    "arriveAt": {
+      "airportId": "2",
+      "airportName": "Los Angeles International Airport",
+      "airportCode": "LAX",
+      "airportCity": "Los Angeles",
+      "airportState": "CA"
+    },
+	"departureDateTime": "2020-10-03 14:00:00",
+	"arrivalDateTime": "2020-10-03 19:15:00",
+    "price": "225"
+  },
+  {
+    "flightId": "8",
+    "flightNumber": "AAL120",
+    "airline": {
+      "airlineId": "3",
+      "airlineName": "American Airlines",
+      "airlineCode": "AAL"
+    },
+    "departFrom": {
+      "airportId": "6",
+      "airportName": "John F. Kennedy International Airport",
+      "airportCode": "JFK",
+      "airportCity": "New York",
+      "airportState": "NY"
+    },
+    "arriveAt": {
+      "airportId": "5",
+      "airportName": "Denver International Airport",
+      "airportCode": "DEN",
+      "airportCity": "Denver",
+      "airportState": "CO"
+    },
+	"departureDateTime": "2020-10-01 09:00:00",
+	"arrivalDateTime": "2020-10-01 11:30:00",
+    "price": "165"
+  },
+  {
+    "flightId": "9",
+    "flightNumber": "AAL130",
+    "airline": {
+      "airlineId": "3",
+      "airlineName": "American Airlines",
+      "airlineCode": "AAL"
+    },
+    "departFrom": {
+      "airportId": "6",
+      "airportName": "John F. Kennedy International Airport",
+      "airportCode": "JFK",
+      "airportCity": "New York",
+      "airportState": "NY"
+    },
+    "arriveAt": {
+      "airportId": "17",
+      "airportName": "Minneapolis–Saint Paul International Airport",
+      "airportCode": "MSP",
+      "airportCity": "Minneapolis",
+      "airportState": "MN"
+    },
+	"departureDateTime": "2020-10-01 08:00:00",
+	"arrivalDateTime": "2020-10-01 11:00:00",
+    "price": "187"
+  },
+  {
+    "flightId": "10",
+    "flightNumber": "UAL200",
+    "airline": {
+      "airlineId": "8",
+      "airlineName": "United Airlines",
+      "airlineCode": "UAL"
+    },
+    "departFrom": {
+      "airportId": "2",
+      "airportName": "Los Angeles International Airport",
+      "airportCode": "LAX",
+      "airportCity": "Los Angeles",
+      "airportState": "CA" 
+    },
+    "arriveAt": {
+      "airportId": "7",
+      "airportName": "San Francisco International Airport",
+      "airportCode": "SFO",
+      "airportCity": "San Francisco",
+      "airportState": "CA"
+    },
+	"departureDateTime": "2020-10-01 07:30:00",
+	"arrivalDateTime": "2020-10-01 08:30:00",
+    "price": "90"
+  },
+  {
+    "flightId": "11",
+    "flightNumber": "JBU200",
+    "airline": {
+      "airlineId": "7",
+      "airlineName": "JetBlue Airways",
+      "airlineCode": "JBU"
+    },
+    "departFrom": {
+      "airportId": "2",
+      "airportName": "Los Angeles International Airport",
+      "airportCode": "LAX",
+      "airportCity": "Los Angeles",
+      "airportState": "CA" 
+    },
+    "arriveAt": {
+      "airportId": "7",
+      "airportName": "San Francisco International Airport",
+      "airportCode": "SFO",
+      "airportCity": "San Francisco",
+      "airportState": "CA"
+    },
+	"departureDateTime": "2020-10-01 09:45:00",
+	"arrivalDateTime": "2020-10-01 10:50:00",
+    "price": "95"
+  },
+  {
+    "flightId": "12",
+    "flightNumber": "HAL200",
+    "airline": {
+      "airlineId": "5",
+      "airlineName": "Hawaiian Airlines",
+      "airlineCode": "HAL"
+    },
+    "departFrom": {
+      "airportId": "2",
+      "airportName": "Los Angeles International Airport",
+      "airportCode": "LAX",
+      "airportCity": "Los Angeles",
+      "airportState": "CA" 
+    },
+    "arriveAt": {
+      "airportId": "7",
+      "airportName": "San Francisco International Airport",
+      "airportCode": "SFO",
+      "airportCity": "San Francisco",
+      "airportState": "CA"
+    },
+	"departureDateTime": "2020-10-01 13:30:00",
+	"arrivalDateTime": "2020-10-01 14:25:00",
+    "price": "105"
+  }
+]
