@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.synergisticit.domain.Airport;
 import com.synergisticit.service.AirportService;
-import com.synergisticit.utilities.AirlineUtilities;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,12 +16,9 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 public class RestAirportController {
 
-	private AirlineUtilities airUtil;
 	private AirportService airportService;
 	
-	public RestAirportController(AirlineUtilities airUtil, 
-									AirportService airportService) {
-		this.airUtil = airUtil;
+	public RestAirportController(AirportService airportService) {
 		this.airportService = airportService;
 	}
 	
