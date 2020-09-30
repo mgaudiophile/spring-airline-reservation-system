@@ -1,212 +1,212 @@
-﻿[
-    {
-        "airportId": "1",
-        "airportName": "Hartsfield–Jackson Atlanta International Airport",
-        "airportCode": "ATL",
-        "airportCity": "Atlanta",
-        "airportState": "GA"
-    },
-    {
-        "airportId": "2",
-        "airportName": "Los Angeles International Airport",
-        "airportCode": "LAX",
-        "airportCity": "Los Angeles",
-        "airportState": "CA"
-    },
-    {
-        "airportId": "3",
-        "airportName": "O'Hare International Airport",
-        "airportCode": "ORD",
-        "airportCity": "Chicago",
-        "airportState": "IL"
-    },
-    {
-        "airportId": "4",
-        "airportName": "Dallas/Fort Worth International Airport",
-        "airportCode": "DFW",
-        "airportCity": "Dallas",
-        "airportState": "TX"
-    },
-    {
-        "airportId": "5",
-        "airportName": "Denver International Airport",
-        "airportCode": "DEN",
-        "airportCity": "Denver",
-        "airportState": "CO"
-    },
-    {
-        "airportId": "6",
-        "airportName": "John F. Kennedy International Airport",
-        "airportCode": "JFK",
-        "airportCity": "New York",
-        "airportState": "NY"
-    },
-    {
-        "airportId": "7",
-        "airportName": "San Francisco International Airport",
-        "airportCode": "SFO",
-        "airportCity": "San Francisco",
-        "airportState": "CA"
-    },
-    {
-        "airportId": "8",
-        "airportName": "Seattle–Tacoma International Airport",
-        "airportCode": "SEA",
-        "airportCity": "Seattle",
-        "airportState": "WA"
-    },
-    {
-        "airportId": "9",
-        "airportName": "McCarran International Airport",
-        "airportCode": "LAS",
-        "airportCity": "Las Vegas",
-        "airportState": "NV"
-    },
-    {
-        "airportId": "10",
-        "airportName": "Orlando International Airport",
-        "airportCode": "MCO",
-        "airportCity": "Orlando",
-        "airportState": "FL"
-    },
-    {
-        "airportId": "11",
-        "airportName": "Newark Liberty International Airport",
-        "airportCode": "EWR",
-        "airportCity": "New York",
-        "airportState": "NJ"
-    },
-    {
-        "airportId": "12",
-        "airportName": "Charlotte Douglas International Airport",
-        "airportCode": "CLT",
-        "airportCity": "Charlotte",
-        "airportState": "NC"
-    },
-    {
-        "airportId": "13",
-        "airportName": "Phoenix Sky Harbor International Airport",
-        "airportCode": "PHX",
-        "airportCity": "Phoenix",
-        "airportState": "AZ"
-    },
-    {
-        "airportId": "14",
-        "airportName": "George Bush Intercontinental Airport",
-        "airportCode": "IAH",
-        "airportCity": "Houston",
-        "airportState": "TX"
-    },
-    {
-        "airportId": "15",
-        "airportName": "Miami International Airport",
-        "airportCode": "MIA",
-        "airportCity": "Miami",
-        "airportState": "FL"
-    },
-    {
-        "airportId": "16",
-        "airportName": "General Edward Lawrence Logan International Airport",
-        "airportCode": "BOS",
-        "airportCity": "Boston",
-        "airportState": "MA"
-    },
-    {
-        "airportId": "17",
-        "airportName": "Minneapolis–Saint Paul International Airport",
-        "airportCode": "MSP",
-        "airportCity": "Minneapolis",
-        "airportState": "MN"
-    },
-    {
-        "airportId": "18",
-        "airportName": "Fort Lauderdale–Hollywood International Airport",
-        "airportCode": "FLL",
-        "airportCity": "Fort Lauderdale",
-        "airportState": "FL"
-    },
-    {
-        "airportId": "19",
-        "airportName": "Detroit Metropolitan Airport",
-        "airportCode": "DTW",
-        "airportCity": "Detroit",
-        "airportState": "MI"
-    },
-    {
-        "airportId": "20",
-        "airportName": "Philadelphia International Airport",
-        "airportCode": "PHL",
-        "airportCity": "Philadelphia",
-        "airportState": "PA"
-    },
-    {
-        "airportId": "21",
-        "airportName": "LaGuardia Airport",
-        "airportCode": "LGA",
-        "airportCity": "New York",
-        "airportState": "NY"
-    },
-    {
-        "airportId": "22",
-        "airportName": "Baltimore–Washington International Airport",
-        "airportCode": "BWI",
-        "airportCity": "Baltimore",
-        "airportState": "MD"
-    },
-    {
-        "airportId": "23",
-        "airportName": "Salt Lake City International Airport",
-        "airportCode": "SLC",
-        "airportCity": "Salt Lake City",
-        "airportState": "UT"
-    },
-    {
-        "airportId": "24",
-        "airportName": "San Diego International Airport",
-        "airportCode": "SAN",
-        "airportCity": "San Diego",
-        "airportState": "CA"
-    },
-    {
-        "airportId": "25",
-        "airportName": "Washington Dulles International Airport",
-        "airportCode": "IAD",
-        "airportCity": "Washington, D.C.",
-        "airportState": "VA"
-    },
-    {
-        "airportId": "26",
-        "airportName": "Ronald Reagan Washington National Airport",
-        "airportCode": "DCA",
-        "airportCity": "Washington, D.C.",
-        "airportState": "VA"
-    },
-    {
-        "airportId": "27",
-        "airportName": "Chicago Midway International Airport",
-        "airportCode": "MDW",
-        "airportCity": "Chicago",
-        "airportState": "IL"
-    },
-    {
-        "airportId": "28",
-        "airportName": "Tampa International Airport",
-        "airportCode": "TPA",
-        "airportCity": "Tampa",
-        "airportState": "FL"
-    },
-    {
-        "airportId": "29",
-        "airportName": "Portland International Airport",
-        "airportCode": "PDX",
-        "airportCity": "Portland",
-        "airportState": "OR"
-    },
-    {
-        "airportId": "30",
-        "airportName": "Daniel K. Inouye International Airport",
-        "airportCode": "HNL",
-        "airportCity": "Honolulu",
-        "airportState": "HI"
-    }
+[
+  {
+    "airportId": "1",
+    "airportName": "Hartsfield–Jackson Atlanta International Airport",
+    "airportCode": "ATL",
+    "airportCity": "Atlanta",
+    "airportState": "GA"
+  },
+  {
+    "airportId": "2",
+    "airportName": "Los Angeles International Airport",
+    "airportCode": "LAX",
+    "airportCity": "Los Angeles",
+    "airportState": "CA"
+  },
+  {
+    "airportId": "3",
+    "airportName": "O'Hare International Airport",
+    "airportCode": "ORD",
+    "airportCity": "Chicago",
+    "airportState": "IL"
+  },
+  {
+    "airportId": "4",
+    "airportName": "Dallas/Fort Worth International Airport",
+    "airportCode": "DFW",
+    "airportCity": "Dallas",
+    "airportState": "TX"
+  },
+  {
+    "airportId": "5",
+    "airportName": "Denver International Airport",
+    "airportCode": "DEN",
+    "airportCity": "Denver",
+    "airportState": "CO"
+  },
+  {
+    "airportId": "6",
+    "airportName": "John F. Kennedy International Airport",
+    "airportCode": "JFK",
+    "airportCity": "New York",
+    "airportState": "NY"
+  },
+  {
+    "airportId": "7",
+    "airportName": "San Francisco International Airport",
+    "airportCode": "SFO",
+    "airportCity": "San Francisco",
+    "airportState": "CA"
+  },
+  {
+    "airportId": "8",
+    "airportName": "Seattle–Tacoma International Airport",
+    "airportCode": "SEA",
+    "airportCity": "Seattle",
+    "airportState": "WA"
+  },
+  {
+    "airportId": "9",
+    "airportName": "McCarran International Airport",
+    "airportCode": "LAS",
+    "airportCity": "Las Vegas",
+    "airportState": "NV"
+  },
+  {
+    "airportId": "10",
+    "airportName": "Orlando International Airport",
+    "airportCode": "MCO",
+    "airportCity": "Orlando",
+    "airportState": "FL"
+  },
+  {
+    "airportId": "11",
+    "airportName": "Newark Liberty International Airport",
+    "airportCode": "EWR",
+    "airportCity": "New York",
+    "airportState": "NJ"
+  },
+  {
+    "airportId": "12",
+    "airportName": "Charlotte Douglas International Airport",
+    "airportCode": "CLT",
+    "airportCity": "Charlotte",
+    "airportState": "NC"
+  },
+  {
+    "airportId": "13",
+    "airportName": "Phoenix Sky Harbor International Airport",
+    "airportCode": "PHX",
+    "airportCity": "Phoenix",
+    "airportState": "AZ"
+  },
+  {
+    "airportId": "14",
+    "airportName": "George Bush Intercontinental Airport",
+    "airportCode": "IAH",
+    "airportCity": "Houston",
+    "airportState": "TX"
+  },
+  {
+    "airportId": "15",
+    "airportName": "Miami International Airport",
+    "airportCode": "MIA",
+    "airportCity": "Miami",
+    "airportState": "FL"
+  },
+  {
+    "airportId": "16",
+    "airportName": "General Edward Lawrence Logan International Airport",
+    "airportCode": "BOS",
+    "airportCity": "Boston",
+    "airportState": "MA"
+  },
+  {
+    "airportId": "17",
+    "airportName": "Minneapolis–Saint Paul International Airport",
+    "airportCode": "MSP",
+    "airportCity": "Minneapolis",
+    "airportState": "MN"
+  },
+  {
+    "airportId": "18",
+    "airportName": "Fort Lauderdale–Hollywood International Airport",
+    "airportCode": "FLL",
+    "airportCity": "Fort Lauderdale",
+    "airportState": "FL"
+  },
+  {
+    "airportId": "19",
+    "airportName": "Detroit Metropolitan Airport",
+    "airportCode": "DTW",
+    "airportCity": "Detroit",
+    "airportState": "MI"
+  },
+  {
+    "airportId": "20",
+    "airportName": "Philadelphia International Airport",
+    "airportCode": "PHL",
+    "airportCity": "Philadelphia",
+    "airportState": "PA"
+  },
+  {
+    "airportId": "21",
+    "airportName": "LaGuardia Airport",
+    "airportCode": "LGA",
+    "airportCity": "New York",
+    "airportState": "NY"
+  },
+  {
+    "airportId": "22",
+    "airportName": "Baltimore–Washington International Airport",
+    "airportCode": "BWI",
+    "airportCity": "Baltimore",
+    "airportState": "MD"
+  },
+  {
+    "airportId": "23",
+    "airportName": "Salt Lake City International Airport",
+    "airportCode": "SLC",
+    "airportCity": "Salt Lake City",
+    "airportState": "UT"
+  },
+  {
+    "airportId": "24",
+    "airportName": "San Diego International Airport",
+    "airportCode": "SAN",
+    "airportCity": "San Diego",
+    "airportState": "CA"
+  },
+  {
+    "airportId": "25",
+    "airportName": "Washington Dulles International Airport",
+    "airportCode": "IAD",
+    "airportCity": "Washington, D.C.",
+    "airportState": "VA"
+  },
+  {
+    "airportId": "26",
+    "airportName": "Ronald Reagan Washington National Airport",
+    "airportCode": "DCA",
+    "airportCity": "Washington, D.C.",
+    "airportState": "VA"
+  },
+  {
+    "airportId": "27",
+    "airportName": "Chicago Midway International Airport",
+    "airportCode": "MDW",
+    "airportCity": "Chicago",
+    "airportState": "IL"
+  },
+  {
+    "airportId": "28",
+    "airportName": "Tampa International Airport",
+    "airportCode": "TPA",
+    "airportCity": "Tampa",
+    "airportState": "FL"
+  },
+  {
+    "airportId": "29",
+    "airportName": "Portland International Airport",
+    "airportCode": "PDX",
+    "airportCity": "Portland",
+    "airportState": "OR"
+  },
+  {
+    "airportId": "30",
+    "airportName": "Daniel K. Inouye International Airport",
+    "airportCode": "HNL",
+    "airportCity": "Honolulu",
+    "airportState": "HI"
+  }
 ]

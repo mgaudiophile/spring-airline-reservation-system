@@ -116,7 +116,7 @@
 				<br> <br>
 
 				<div class="mx-auto" style="width: 1000px;">
-					<table class="table table-striped">
+					<table class="table table-striped table-sm">
 						<thead class="thead-dark">
 							<tr>
 								<th>User Id</th>
@@ -284,7 +284,7 @@
 				</frm:form>
 				<br><br>
 				<div class="mx-auto" style="width: 1100px;">
-					<table class="table table-striped">
+					<table class="table table-striped table-sm">
 						<thead class="thead-dark">
 							<tr>
 								<th>Airport Id</th>
@@ -500,7 +500,8 @@
 							<th>Customer Id</th>
 							<th>Name</th>
 							<th>Flight Id</th>
-							<th colspan="2">Action</th>
+							<th>No. Of Passengers</th>
+							<th>Total Price</th>
 						</tr>
 					</thead>
 
@@ -510,6 +511,8 @@
 							<td>${ ticket.customer.customerId }</td>
 							<td>${ ticket.customer.name }</td>
 							<td>${ ticket.flight.flightId }</td>
+							<td>${ ticket.passengers.size() }</td>
+							<td>${ ticket.total }</td>
 						
 						</tr>
 					</c:forEach>

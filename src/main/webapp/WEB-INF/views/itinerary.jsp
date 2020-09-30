@@ -59,16 +59,35 @@
 							<div>${ ticket.flight.prettyFlight.arrive } &emsp;&middot;&emsp; ${ ticket.flight.arriveAt.airportName } (${ ticket.flight.arriveAt.airportCode }) &emsp;&middot;&emsp; ${ ticket.flight.arriveAt.airportCity }, ${ ticket.flight.arriveAt.airportState }</div>
 						</div>
 						
-						<div class="row">
-							<div class="col col-4">
-								<div></div>
-							</div>
-						</div>
 					</div>
+					
+					<br>
+					<hr>
+					<br>
+					<div class="mx-auto" style="width: 900px;">
+					<table class="table table-sm">
+						<thead class="thead-light">
+							<tr>
+								<th>Passenger</th>
+								<th>Mobile#</th>
+								<th>Email</th>
+							</tr>
+						</thead>
 
-				</div>
-			</div>
+						<c:forEach items="${ ticket.passengers }" var="p">
+							<tr>
+								<td>${ p.name }</td>
+								<td>${ p.mobile }</td>
+								<td>${ p.email }</td>
+							</tr>
+						</c:forEach>
+					</table>
+					</div>
+				
+				</div><!-- end card body -->
+			</div><!-- end card -->
 
+			<br>
 		</c:forEach>
 		
 	</div>

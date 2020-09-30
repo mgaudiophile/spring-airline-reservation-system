@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.synergisticit.domain.Profile;
-import com.synergisticit.service.CustomerService;
 import com.synergisticit.utilities.AirlineUtilities;
 import com.synergisticit.validator.ProfileValidator;
 
@@ -23,14 +22,11 @@ import lombok.extern.slf4j.Slf4j;
 public class ProfileController {
 
 	private AirlineUtilities airUtil;
-	private CustomerService custService;
 	private ProfileValidator profValid;
 	
 	public ProfileController(AirlineUtilities airUtil, 
-								CustomerService custService,
 								ProfileValidator profValid) {
 		this.airUtil = airUtil;
-		this.custService = custService;
 		this.profValid = profValid;
 	}
 	

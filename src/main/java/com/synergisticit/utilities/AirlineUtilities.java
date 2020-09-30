@@ -30,6 +30,7 @@ import com.synergisticit.service.AirlineService;
 import com.synergisticit.service.AirportService;
 import com.synergisticit.service.CustomerService;
 import com.synergisticit.service.FlightService;
+import com.synergisticit.service.PassengerService;
 import com.synergisticit.service.RoleService;
 import com.synergisticit.service.TicketService;
 import com.synergisticit.service.UserService;
@@ -48,6 +49,7 @@ public class AirlineUtilities {
 	private AirlineService airlineService;
 	private CustomerService customerService;
 	private TicketService ticketService;
+	private PassengerService passengerService;
 	
 	private List<Passenger> passengers = new ArrayList<>();
 	
@@ -58,7 +60,8 @@ public class AirlineUtilities {
 							AirportService airportService,
 							AirlineService airlineService,
 							CustomerService customerService,
-							TicketService ticketService) {
+							TicketService ticketService,
+							PassengerService passengerService) {
 		
 		this.roleService = roleService;
 		this.userService = userService;
@@ -67,6 +70,7 @@ public class AirlineUtilities {
 		this.airlineService = airlineService;
 		this.customerService = customerService;
 		this.ticketService = ticketService;
+		this.passengerService = passengerService;
 	}
 	
 	public void buildModel(Model model) {
@@ -81,8 +85,16 @@ public class AirlineUtilities {
 	
 	public void buildCustomerModel(Model model) {
 		model.addAttribute("airportCodes", buildAirportMap(airportService.findAllAirportCode(), airportService.findAllAirportName()));
-		model.addAttribute("listOfTickets", ticketService.findAllByCustomerId(getCurrentCustomer().getCustomerId()));
+		
 		model.addAttribute("customer", getCurrentCustomer());
+		
+		List<Ticket> list = ticketService.findAllByCustomerId(getCurrentCustomer().getCustomerId());
+		for (Ticket t : list) {
+			List<Passenger> p = passengerService.findAllByTicketId(t.getTicketId());
+			t.setPassengers(p);
+		}
+		
+		model.addAttribute("listOfTickets", list);
 	}
 	
 	public void initBookingModel(long flightId, long tickets, long total, Model model) {
@@ -148,9 +160,13 @@ public class AirlineUtilities {
 		
 		t.setFlight(flightService.findById(flightId));
 		t.setTotal(payment.getTotal());
-		t.setPassengers(passengers);
 		
-		ticketService.save(t);
+		Ticket tDb = ticketService.save(t);
+		
+		for (Passenger p : passengers) {
+			p.setTicket(tDb);
+			passengerService.save(p);
+		}
 		
 		resetPassengers();
 	}
