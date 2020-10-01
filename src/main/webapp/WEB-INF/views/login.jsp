@@ -9,25 +9,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
 
 <title>Login</title>
-
-<script>
-	$(document).ready(function() {
-		$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-			localStorage.setItem('activeTab', $(e.target).attr('href'));
-		});
-		var activeTab = localStorage.getItem('activeTab');
-		if (activeTab) {
-			$('#myTab a[href="' + activeTab + '"]').tab('show');
-		}
-	});
-	
-</script>
 
 <style>
 .jumbotron {
@@ -40,6 +31,18 @@
 	font-size: small;
 }
 </style>
+
+<script>
+$(document).ready(function() {
+	$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+		localStorage.setItem('activeTab', $(e.target).attr('href'));
+	});
+	var activeTab = localStorage.getItem('activeTab');
+	if (activeTab) {
+		$('#myTab a[href="' + activeTab + '"]').tab('show');
+	}
+});
+</script>
 
 </head>
 <body>
@@ -177,6 +180,8 @@
 		
 	</div>
 </div>
+
+
 
 </body>
 </html>

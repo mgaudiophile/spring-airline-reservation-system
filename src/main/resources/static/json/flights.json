@@ -21,8 +21,8 @@
       "airportCity": "San Francisco",
       "airportState": "CA"
     },
-	"departureDateTime": "2020-10-01 07:30:00",
-	"arrivalDateTime": "2020-10-01 08:30:00",
+	"departureDateTime": "2020-10-09 07:30:00",
+	"arrivalDateTime": "2020-10-09 08:30:00",
     "price": "100"
   },
   {
@@ -47,8 +47,8 @@
       "airportCity": "Seattle",
       "airportState": "WA"
     },
-	"departureDateTime": "2020-10-02 09:00:00",
-	"arrivalDateTime": "2020-10-02 12:00:00",
+	"departureDateTime": "2020-10-09 09:00:00",
+	"arrivalDateTime": "2020-10-09 12:00:00",
     "price": "125"
   },
   {
@@ -73,8 +73,8 @@
       "airportCity": "Chicago",
       "airportState": "IL"
     },
-	"departureDateTime": "2020-10-02 10:00:00",
-	"arrivalDateTime": "2020-10-02 12:35:00",
+	"departureDateTime": "2020-10-09 10:00:00",
+	"arrivalDateTime": "2020-10-09 12:35:00",
     "price": "145"
   },
   {
@@ -99,8 +99,8 @@
       "airportCity": "Las Vegas",
       "airportState": "NV"
     },
-	"departureDateTime": "2020-10-03 16:15:00",
-	"arrivalDateTime": "2020-10-03 19:30:00",
+	"departureDateTime": "2020-10-09 16:15:00",
+	"arrivalDateTime": "2020-10-09 19:30:00",
     "price": "170"
   },
   {
@@ -125,8 +125,8 @@
       "airportCity": "Orlando",
       "airportState": "FL"
     },
-	"departureDateTime": "2020-10-01 13:00:00",
-	"arrivalDateTime": "2020-10-01 16:15:00",
+	"departureDateTime": "2020-10-09 13:00:00",
+	"arrivalDateTime": "2020-10-09 16:15:00",
     "price": "182"
   },
   {
@@ -151,8 +151,8 @@
       "airportCity": "Atlanta",
       "airportState": "GA"
     },
-	"departureDateTime": "2020-10-02 14:00:00",
-	"arrivalDateTime": "2020-10-02 16:45:00",
+	"departureDateTime": "2020-10-09 14:00:00",
+	"arrivalDateTime": "2020-10-09 16:45:00",
     "price": "180"
   },
   {
@@ -177,8 +177,8 @@
       "airportCity": "Los Angeles",
       "airportState": "CA"
     },
-	"departureDateTime": "2020-10-03 14:00:00",
-	"arrivalDateTime": "2020-10-03 19:15:00",
+	"departureDateTime": "2020-10-09 14:00:00",
+	"arrivalDateTime": "2020-10-09 19:15:00",
     "price": "225"
   },
   {
@@ -203,8 +203,8 @@
       "airportCity": "Denver",
       "airportState": "CO"
     },
-	"departureDateTime": "2020-10-01 09:00:00",
-	"arrivalDateTime": "2020-10-01 11:30:00",
+	"departureDateTime": "2020-10-09 09:00:00",
+	"arrivalDateTime": "2020-10-09 11:30:00",
     "price": "165"
   },
   {
@@ -229,8 +229,8 @@
       "airportCity": "Minneapolis",
       "airportState": "MN"
     },
-	"departureDateTime": "2020-10-01 08:00:00",
-	"arrivalDateTime": "2020-10-01 11:00:00",
+	"departureDateTime": "2020-10-09 08:00:00",
+	"arrivalDateTime": "2020-10-09 11:00:00",
     "price": "187"
   },
   {
@@ -255,8 +255,8 @@
       "airportCity": "San Francisco",
       "airportState": "CA"
     },
-	"departureDateTime": "2020-10-01 07:30:00",
-	"arrivalDateTime": "2020-10-01 08:30:00",
+	"departureDateTime": "2020-10-09 07:30:00",
+	"arrivalDateTime": "2020-10-09 08:30:00",
     "price": "90"
   },
   {
@@ -281,8 +281,8 @@
       "airportCity": "San Francisco",
       "airportState": "CA"
     },
-	"departureDateTime": "2020-10-01 09:45:00",
-	"arrivalDateTime": "2020-10-01 10:50:00",
+	"departureDateTime": "2020-10-09 09:45:00",
+	"arrivalDateTime": "2020-10-09 10:50:00",
     "price": "95"
   },
   {
@@ -307,8 +307,8 @@
       "airportCity": "San Francisco",
       "airportState": "CA"
     },
-	"departureDateTime": "2020-10-01 13:30:00",
-	"arrivalDateTime": "2020-10-01 14:25:00",
+	"departureDateTime": "2020-10-09 13:30:00",
+	"arrivalDateTime": "2020-10-09 14:25:00",
     "price": "105"
   }
 ]
