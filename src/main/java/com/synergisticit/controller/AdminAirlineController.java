@@ -65,8 +65,7 @@ public class AdminAirlineController {
 		log.debug("AdminAirlineController.adminUpdateAirline().....");
 		
 		if (airlineService.existsById(airlineId)) {
-			airline = airlineService.findById(airlineId);
-			model.addAttribute("airline", airline);
+			model.addAttribute("airline", airlineService.findById(airlineId));
 		} else {
 			model.addAttribute("airline", new Airline());
 		}

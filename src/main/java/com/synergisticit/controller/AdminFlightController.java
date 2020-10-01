@@ -66,8 +66,7 @@ public class AdminFlightController {
 		log.debug("AdminFlightController.adminUpdateFlight().....");
 		
 		if (flightService.existsById(flightId)) {
-			flight = flightService.findById(flightId);
-			model.addAttribute("flight", flight);
+			model.addAttribute("flight", flightService.findById(flightId));
 		} else {
 			model.addAttribute("flight", new Flight());
 		}

@@ -65,8 +65,7 @@ public class AdminAirportController {
 		log.debug("AdminAirportController.adminUpdateAirport().....");
 		
 		if (airportService.existsById(airportId)) {
-			airport = airportService.findById(airportId);
-			model.addAttribute("airport", airport);
+			model.addAttribute("airport", airportService.findById(airportId));
 		} else {
 			model.addAttribute("airport", new Airport());
 		}

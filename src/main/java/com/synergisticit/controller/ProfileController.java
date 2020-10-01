@@ -35,6 +35,7 @@ public class ProfileController {
 		binder.addValidators(profValid);
 	}
 	
+	
 	// --- MAPPINGS ---
 	
 	@GetMapping("/profile")

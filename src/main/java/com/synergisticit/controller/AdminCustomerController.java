@@ -46,6 +46,9 @@ public class AdminCustomerController {
 		binder.addValidators(custValid);
 	}
 	
+	
+	// --- MAPPINGS ---
+	
 	@PostMapping("/adminSaveCustomer")
 	public String adminSaveCustomer(@Valid @ModelAttribute Customer customer, BindingResult br, Model model) {
 		log.debug("AdminCustomerController.adminSaveCustomer().....");
@@ -63,8 +66,7 @@ public class AdminCustomerController {
 	public String adminUpdateCustomer(Customer customer, @RequestParam long customerId, Model model) {
 	
 		if (custService.existsById(customerId)) {
-			customer = custService.findById(customerId);
-			model.addAttribute("customer", customer);
+			model.addAttribute("customer", custService.findById(customerId));
 		} else {
 			model.addAttribute("customer", new Customer());
 		}

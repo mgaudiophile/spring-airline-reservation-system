@@ -37,6 +37,9 @@ public class SearchFlightsController {
 		binder.addValidators(searchValid);
 	}
 	
+	
+	// --- MAPPINGS ---
+	
 	@PostMapping("/searchFlights")
 	public String searchFlights(@Valid @ModelAttribute Search search, BindingResult br, Model model) {
 		log.debug("SearchFlightsController.searchFlights().....");

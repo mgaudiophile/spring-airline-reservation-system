@@ -177,7 +177,7 @@
 							      	<frm:errors path="creditCardNumber" cssClass="error" />
 							    </div>
 							    <div class="form-group col-md-4">
-							    	<label class="mt-5 mb-1" for="expiration">Expiration</label>
+							    	<label class="mt-5 mb-2" for="expiration">Expiration</label>
 							      	<frm:input type="date" class="form-control form-control-lg" path="expiration" id="expiration" />
 							      	<frm:errors path="expiration" cssClass="error" />
 							    </div>
@@ -195,6 +195,9 @@
 							    	<div class="text-center">
 										<button type="submit" class="btn btn-primary btn-lg my-4">Submit Payment</button>
 									</div>
+							    </div>
+							    <div class="form-group col-md-4">
+							    	<h1 class="mt-4">Total: &emsp; $${ total }</h1>
 							    </div>
 							</div>
 							
