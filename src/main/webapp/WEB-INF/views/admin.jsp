@@ -25,21 +25,22 @@
 .error {
 	color: red;
 	font-style: italic;
-	font-weight: bold
+	font-weight: bold;
+	font-size: small;
 }
 </style>
 <script>
-	$(document).ready(function() {
-		$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-			localStorage.setItem('activeTab', $(e.target).attr('href'));
-		});
-		var activeTab = localStorage.getItem('activeTab');
-		if (activeTab) {
-			$('#myTab a[href="' + activeTab + '"]').tab('show');
-		}
+$(document).ready(function() {
+	$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+		localStorage.setItem('activeTab', $(e.target).attr('href'));
 	});
-	
+	var activeTab = localStorage.getItem('activeTab');
+	if (activeTab) {
+		$('#myTab a[href="' + activeTab + '"]').tab('show');
+	}
+});
 </script>
+</head>
 <body>
 
 	<div class="container">
@@ -462,7 +463,6 @@
 							<th>City</th>
 							<th>State</th>
 							<th>Mobile</th>
-							<th>Phone</th>
 							<th>Email</th>
 							<th>SSN</th>
 							<th>Gender</th>

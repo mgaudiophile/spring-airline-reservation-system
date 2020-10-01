@@ -19,6 +19,8 @@ import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -100,18 +102,38 @@ public class AppConfig implements WebMvcConfigurer {
 		return viewResolver;
 	}
 	
-//	@Bean
-//	public RestTemplate restTemplate() {
-//		
-//		List<HttpMessageConverter<?>> messageConverter = new ArrayList<>();
-//		messageConverter.add(new StringHttpMessageConverter());
-//		messageConverter.add(new MappingJackson2XmlHttpMessageConverter());
-//		messageConverter.add(new MappingJackson2HttpMessageConverter());
-//		
-//		RestTemplate restTemplate = new RestTemplate();
-//		restTemplate.setMessageConverters(messageConverter);
-//		restTemplate.getInterceptors().add(new BasicAuthenticationInterceptor("admin", "admin", Charset.forName("UTF-8")));
-//		
-//		return restTemplate;
-//	}
+	@Bean
+	public JavaMailSender mailSender() {
+		
+		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+		mailSender.setHost("smtp.gmail.com");
+		mailSender.setPort(587);
+		mailSender.setUsername("fremontsession@gmail.com");
+		mailSender.setPassword("session3!");
+		
+		Properties javaMailProperties = new Properties();
+		javaMailProperties.setProperty("mail.transport.protocol", "smtp");
+		javaMailProperties.setProperty("mail.smtp.auth", "true");
+		javaMailProperties.setProperty("mail.debug", "true");
+		javaMailProperties.setProperty("mail.smtp.starttls.enable", "true");
+		
+		mailSender.setJavaMailProperties(javaMailProperties);
+		
+		return mailSender;
+	}
+	
+	@Bean
+	public RestTemplate restTemplate() {
+		
+		List<HttpMessageConverter<?>> messageConverter = new ArrayList<>();
+		messageConverter.add(new StringHttpMessageConverter());
+		messageConverter.add(new MappingJackson2XmlHttpMessageConverter());
+		messageConverter.add(new MappingJackson2HttpMessageConverter());
+		
+		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.setMessageConverters(messageConverter);
+		restTemplate.getInterceptors().add(new BasicAuthenticationInterceptor("admin", "admin", Charset.forName("UTF-8")));
+		
+		return restTemplate;
+	}
 }

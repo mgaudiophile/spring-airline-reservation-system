@@ -30,6 +30,10 @@
 }
 </style>
 
+<script>
+
+</script>
+
 </head>
 <body>
 
@@ -76,26 +80,26 @@
 								<div class="form-row">
     								<div class="form-group col-4">
 								    <label class="my-1" for="name">Name</label>
-								    	<frm:input class="form-control form-control-lg" path="name" id="name" />
+								    	<frm:input class="form-control form-control-lg" path="name" id="name" /> <frm:errors path="name" cssClass="error" />
 								    </div>
 								    <div class="form-group col-4">
 								    	<label class="my-1" for="gender">Gender</label>
-								    	<frm:input class="form-control form-control-lg" path="gender" id="gender" />
+								    	<frm:input class="form-control form-control-lg" path="gender" id="gender" /> <frm:errors path="gender" cssClass="error" />
 								    </div>
 								    <div class="form-group col-4">
 										<label class="my-1" for="dob">Date of Birth</label>
-								      	<frm:input type="date" class="form-control form-control-lg" path="dob" id="dob" />
+								      	<frm:input type="date" class="form-control form-control-lg" path="dob" id="dob" /> <frm:errors path="dob" cssClass="error" />
 								    </div>
 								</div>
 						
 								<div class="form-row">
 									<div class="form-group col-4">
 									<label class="my-1" for="mobile">Mobile</label>
-								      	<frm:input class="form-control form-control-lg" path="mobile" id="mobile" />
+								      	<frm:input class="form-control form-control-lg" path="mobile" id="mobile" /> <frm:errors path="mobile" cssClass="error" />
 								    </div>
 								    <div class="form-group col-4">
 								    	<label class="my-1" for="email">Email</label>
-								      	<frm:input type="email" class="form-control form-control-lg mb-3" path="email" id="email" />
+								      	<frm:input type="email" class="form-control form-control-lg mb-3" path="email" id="email" /> <frm:errors path="email" cssClass="error" />
 								      	<frm:hidden path="ticketNumber" value="${ tickets }" />
 								    </div>
 								</div>
@@ -132,7 +136,7 @@
 							<div class="form-row">
 								<div class="form-group col-4">
 							    <label class="my-1" for="name">Credit Card Holder Name</label>
-							    	<frm:input class="form-control form-control-lg" path="name" id="name" />
+							    	<frm:input class="form-control form-control-lg" path="name" id="name" /> <frm:errors path="name" cssClass="error" />
 							    </div>
 							</div>
 							
@@ -140,25 +144,29 @@
 								<div class="form-group col-md-12">
 								<label class="mt-3 mb-1" for="billingaddress">Billing Address</label>
 							      	<frm:input class="form-control form-control-lg" path="billingAddress.addressLine1" id="billingaddress" placeholder="123 Main Street"/>
+							      	<frm:errors path="billingAddress.addressLine1" cssClass="error" />
 							    </div>
 							</div>
 							
 							<div class="form-row">
 								<div class="form-group col-md-12">
 							      	<frm:input class="form-control form-control-lg" path="billingAddress.addressLine2" placeholder="Apartment, studio, or floor"/>
+							      	<frm:errors path="billingAddress.addressLine2" cssClass="error" />
 							    </div>
 							</div>
 							
 							<div class="form-row">
 								<div class="form-group col-md-4">
 							      	<frm:input class="form-control form-control-lg" path="billingAddress.city" id="city" placeholder="City" />
+							      	<frm:errors path="billingAddress.city" cssClass="error" />
 							    </div>
 							    <div class="form-group col-md-4">
-							    	
 							      	<frm:input class="form-control form-control-lg" path="billingAddress.state" id="state" placeholder="State" />
+							      	<frm:errors path="billingAddress.state" cssClass="error" />
 							    </div>
 							    <div class="form-group col-md-4">
 							      	<frm:input class="form-control form-control-lg" path="billingAddress.zip" id="zip" placeholder="Zip" />
+							      	<frm:errors path="billingAddress.zip" cssClass="error" />
 							    </div>
 							</div>
 							
@@ -166,14 +174,17 @@
 								<div class="form-group col-md-4">
 									<label class="mt-5 mb-1" for="credit">Credit Card</label>
 							      	<frm:input class="form-control form-control-lg" path="creditCardNumber" id="credit" />
+							      	<frm:errors path="creditCardNumber" cssClass="error" />
 							    </div>
 							    <div class="form-group col-md-4">
 							    	<label class="mt-5 mb-1" for="expiration">Expiration</label>
 							      	<frm:input type="date" class="form-control form-control-lg" path="expiration" id="expiration" />
+							      	<frm:errors path="expiration" cssClass="error" />
 							    </div>
 							    <div class="form-group col-md-4">
 							    	<label class="mt-5 mb-1" for="ccv">CCV</label>
 							      	<frm:input class="form-control form-control-lg" path="ccv" id="ccv" />
+							      	<frm:errors path="ccv" cssClass="error" />
 							      	<frm:hidden path="flightId" value="${ flightId }" />
 							      	<frm:hidden path="total" value="${ total }" />
 							    </div>

@@ -17,6 +17,7 @@ import com.synergisticit.domain.Passenger;
 import com.synergisticit.domain.Payment;
 import com.synergisticit.utilities.AirlineUtilities;
 import com.synergisticit.validator.PassengerValidator;
+import com.synergisticit.validator.PaymentValidator;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,11 +27,14 @@ public class BookingController {
 
 	private AirlineUtilities airUtil;
 	private PassengerValidator passengerValid;
+	private PaymentValidator paymentValid;
 	
 	public BookingController(AirlineUtilities airUtil,
-								PassengerValidator passengerValid) {
+								PassengerValidator passengerValid,
+								PaymentValidator paymentValid) {
 		this.airUtil = airUtil;
 		this.passengerValid = passengerValid;
+		this.paymentValid = paymentValid;
 	}
 	
 	@InitBinder("passenger")
@@ -38,6 +42,10 @@ public class BookingController {
 		binder.addValidators(passengerValid);
 	}
 	
+	@InitBinder("payment")
+	public void initPaymentValidBinder(WebDataBinder binder) {
+		binder.addValidators(paymentValid);
+	}
 	
 	// --- MAPPINGS ---
 	
@@ -60,22 +68,28 @@ public class BookingController {
 		
 		if (!br.hasErrors()) {
 			airUtil.addPassenger(passenger);
+			airUtil.updateBookingModel(passenger, model);
 			model.addAttribute("passenger", new Passenger());
 		}
 	
-		airUtil.updateBookingModel(passenger, model);
 		return "booking";
 	}
 	
 	@PostMapping("/purchase")
-	public String purchase(@ModelAttribute Payment payment, Model model, HttpSession session) {
+	public String purchase(@Valid @ModelAttribute Payment payment, BindingResult br, Model model, HttpSession session) {
 		log.debug("BookingController.purchase().....");
 		
-		airUtil.purchaseTicket(payment, (Long) session.getAttribute("flightId"));
+		if (!br.hasErrors()) {
+			airUtil.purchaseTicket(payment, (Long) session.getAttribute("flightId"));
+			model.addAttribute("payment", new Payment());
+			return "itinerary";
+		}
 		
 		airUtil.buildCustomerModel(model);
-		return "itinerary";
+		return "booking";
 	}
+	
+	
 	
 	// --- MODEL ATTRIBUTES ---
 	@ModelAttribute
