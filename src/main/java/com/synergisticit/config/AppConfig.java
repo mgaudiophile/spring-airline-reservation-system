@@ -112,4 +112,23 @@ public class AppConfig implements WebMvcConfigurer {
 		
 		return mailSender;
 	}
+	
+//	@Bean
+//	@Primary
+//	public ObjectMapper objectMapper() {
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withLocale(Locale.ENGLISH);
+//
+//		LocalDateTimeDeserializer dateTimeDeserializer = new LocalDateTimeDeserializer(formatter);
+//		LocalDateTimeSerializer dateTimeSerializer = new LocalDateTimeSerializer(formatter);
+//
+//		JavaTimeModule javaTimeModule = new JavaTimeModule(); 
+//		javaTimeModule.addDeserializer(LocalDateTime.class, dateTimeDeserializer);
+//		javaTimeModule.addSerializer(LocalDateTime.class, dateTimeSerializer);
+//
+//		ObjectMapper mapper = new ObjectMapper();
+//		mapper.registerModule(javaTimeModule);
+//		
+//		return mapper;
+//	}
+
 }

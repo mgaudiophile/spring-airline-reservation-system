@@ -49,7 +49,7 @@ public class RestAirportController {
 	
 	// --- MAPPINGS ---
 	
-	@GetMapping("/api/airports")
+	@GetMapping("/api/airport")
 	public ResponseEntity<?> apiAirports() {
 		log.debug("RestAirportController.apiAirports().....");
 		
@@ -61,7 +61,7 @@ public class RestAirportController {
 		return new ResponseEntity<List<Airport>>(airports, HttpStatus.FOUND);
 	}
 	
-	@GetMapping("/api/airports/{id}")
+	@GetMapping("/api/airport/{id}")
 	public ResponseEntity<?> apiGetAirportById(@PathVariable("id") long id) {
 		
 		if (airportService.existsById(id)) {
@@ -70,7 +70,7 @@ public class RestAirportController {
 		return new ResponseEntity<String>("airport with id: " + id + " not found", HttpStatus.NOT_FOUND); 
 	}
 	
-	@PostMapping(value = "/api/airports", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/api/airport", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> apiSaveAirport(@Valid @RequestBody Airport airport, BindingResult br) {
 		
 		if (!br.hasErrors()) {
@@ -83,7 +83,7 @@ public class RestAirportController {
 		return new ResponseEntity<String>(airUtil.getValidationErrors(br), HttpStatus.NOT_ACCEPTABLE); 
 	}
 	
-	@PutMapping(value = "/api/airports", consumes=MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "/api/airport", consumes=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> apiUpdateAirport(@Valid @RequestBody Airport airport, BindingResult br) {
 		
 		if (airportService.existsById(airport.getAirportId())) {
@@ -103,8 +103,8 @@ public class RestAirportController {
 		return new ResponseEntity<String>("airport with id: " + airport.getAirportId() + " not found", HttpStatus.NOT_FOUND);  
 	}
 	
-	@DeleteMapping(value = "/api/airports/{id}")
-	public ResponseEntity<?> apiDeleteAccount(@PathVariable("id") long id) {
+	@DeleteMapping(value = "/api/airport/{id}")
+	public ResponseEntity<?> apiDeleteAirport(@PathVariable("id") long id) {
 		
 		if (airportService.existsById(id)) {
 			airportService.deleteById(id);
