@@ -13,6 +13,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 
 import com.synergisticit.domain.Address;
 import com.synergisticit.domain.Airport;
@@ -168,8 +170,20 @@ public class AirlineUtilities {
 			passengerService.save(p);
 		}
 		
+		//sendItinerary(flightId);
 		resetPassengers();
 	}
+	
+//	public void sendItinerary(Long flightId) {
+//		Flight f = flightService.findById(flightId);
+//		
+//		for (Passenger p : passengers) {
+//			String email = p.getEmail();
+//			String subject = "Itinerary";
+//			String msg = "Flight Number: " + f.getFlightNumber();
+//		}
+//		mailService.sendEmail(email, subject, msg)
+//	}
 	
 	public List<Flight> searchFlights(Search search) {
 		log.debug("AirlineUtilities.searchFlights().....");
@@ -248,6 +262,15 @@ public class AirlineUtilities {
 		customer.setUser(user);
 		
 		customerService.save(customer);
+	}
+	
+	public String getValidationErrors(BindingResult br) {
+		
+		StringBuilder sb = new StringBuilder();
+		for (ObjectError err : br.getAllErrors()) {
+			sb.append(err.getDefaultMessage() + "\n");
+		}
+		return sb.toString();
 	}
 	
 	private Map<String, String> buildAirportMap(List<String> codes, List<String> names) {

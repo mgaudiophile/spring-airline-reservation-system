@@ -1,8 +1,5 @@
 package com.synergisticit.config;
 
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -13,18 +10,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.http.client.support.BasicAuthenticationInterceptor;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
@@ -120,20 +111,5 @@ public class AppConfig implements WebMvcConfigurer {
 		mailSender.setJavaMailProperties(javaMailProperties);
 		
 		return mailSender;
-	}
-	
-	@Bean
-	public RestTemplate restTemplate() {
-		
-		List<HttpMessageConverter<?>> messageConverter = new ArrayList<>();
-		messageConverter.add(new StringHttpMessageConverter());
-		messageConverter.add(new MappingJackson2XmlHttpMessageConverter());
-		messageConverter.add(new MappingJackson2HttpMessageConverter());
-		
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.setMessageConverters(messageConverter);
-		restTemplate.getInterceptors().add(new BasicAuthenticationInterceptor("admin", "admin", Charset.forName("UTF-8")));
-		
-		return restTemplate;
 	}
 }
