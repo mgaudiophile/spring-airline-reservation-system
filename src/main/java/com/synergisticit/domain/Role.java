@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.Data;
 import lombok.ToString;
 
@@ -24,6 +26,7 @@ public class Role {
 	
 	private String roleName;
 	
+	@JsonBackReference
 	@ManyToMany(mappedBy = "roles")
 	@ToString.Exclude
 	private List<User> users = new ArrayList<>();
