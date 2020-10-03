@@ -32,6 +32,12 @@ public class RoleServiceImpl implements RoleService {
 		Optional<Role> opt = roleRepo.findById(id);
 		return opt.isPresent() ? opt.get() : null;
 	}
+	
+	@Override
+	public boolean existsById(long id) {
+		
+		return roleRepo.existsById(id);
+	}
 
 	@Override
 	public void deleteById(long id) {

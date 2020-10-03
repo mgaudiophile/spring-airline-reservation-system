@@ -10,6 +10,7 @@ public interface RoleService {
 	
 	List<Role> findAll();
 	Role findById(long id);
+	boolean existsById(long id);
 	
 	void deleteById(long id);
 }

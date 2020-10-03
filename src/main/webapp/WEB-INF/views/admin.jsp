@@ -54,7 +54,9 @@ $(document).ready(function() {
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist" id="myTab">
 			<li class="nav-item"><a class="nav-link active"
-				data-toggle="tab" href="#users">Users</a></li>
+				data-toggle="tab" href="#roles">Roles</a></li>
+			<li class="nav-item"><a class="nav-link" data-toggle="tab" 
+				href="#users">Users</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab" 
 				href="#flights">Flights</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
@@ -69,7 +71,53 @@ $(document).ready(function() {
 
 		<!-- Tab panes -->
 		<div class="tab-content">
-			<div id="users" class="container tab-pane active">
+			<div id="roles" class="container tab-pane active">
+				<br> <br>
+				<h3>Roles</h3>
+				<br>
+				<frm:form action="adminSaveRole" method="POST" modelAttribute="role">
+					<table>
+						<tr>
+							<td>Role ID:</td>
+							<td><frm:input path="roleId" /></td>
+							<td><frm:errors path="roleId" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td>Role Name:</td>
+							<td><frm:input path="roleName" /></td>
+							<td><frm:errors path="roleName" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td align="right" colspan="2"><input
+								class="btn btn-primary btn-lg mt-3" type="submit" value="submit" /></td>
+						</tr>
+					</table>
+				</frm:form>
+				<br> <br>
+				
+				<div class="mx-auto" style="width: 1000px;">
+					<table class="table table-striped table-sm">
+						<thead class="thead-dark">
+							<tr>
+								<th>Id</th>
+								<th>Role</th>
+								<th colspan="2">Action</th>
+							</tr>
+						</thead>
+						
+						<c:forEach items="${ roles }" var="role">
+							<tr>
+								<td>${ role.roleId }</td>
+								<td>${ role.roleName }</td>
+								<td><a href="adminDeleteRole?roleId=${ role.roleId }">delete</a></td>
+								<td><a href="adminUpdateRole?roleId=${ role.roleId }">update</a></td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>				
+			</div><!-- end role panel -->
+			
+			<div id="users" class="container tab-pane fade">
 				<br> <br>
 				<h3>Users</h3>
 				<br>

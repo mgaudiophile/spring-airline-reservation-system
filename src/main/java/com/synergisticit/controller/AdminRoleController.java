@@ -18,101 +18,101 @@ import com.synergisticit.domain.Customer;
 import com.synergisticit.domain.Flight;
 import com.synergisticit.domain.Role;
 import com.synergisticit.domain.User;
-import com.synergisticit.service.AirportService;
+import com.synergisticit.service.RoleService;
 import com.synergisticit.utilities.AirlineUtilities;
-import com.synergisticit.validator.AdminAirportValidator;
+import com.synergisticit.validator.AdminRoleValidator;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-public class AdminAirportController {
+public class AdminRoleController {
 
 	private AirlineUtilities airUtil;
-	private AirportService airportService;
-	private AdminAirportValidator airportValid;
-	
-	public AdminAirportController(AirlineUtilities airUtil, 
-									AirportService airportService,
-									AdminAirportValidator airportValid) {
+	private RoleService roleService;
+	private AdminRoleValidator roleValid;
+
+	public AdminRoleController(AirlineUtilities airUtil, 
+								RoleService roleService,
+								AdminRoleValidator roleValid) {
 		this.airUtil = airUtil;
-		this.airportService = airportService;
-		this.airportValid = airportValid;
+		this.roleService = roleService;
+		this.roleValid = roleValid;
 	}
 	
-	@InitBinder("airport")
-	public void initAdminAirportValidatorBinder(WebDataBinder binder) {
-		binder.addValidators(airportValid);
+	@InitBinder("role")
+	public void initAdminRoleValidator(WebDataBinder binder) {
+		binder.addValidators(roleValid);
 	}
 	
 	
+
 	// --- MAPPINGS ---
-	
-	@PostMapping("/adminSaveAirport")
-	public String adminSaveAirport(@Valid @ModelAttribute Airport airport, BindingResult br, Model model) {
-		log.debug("AdminAirportController.adminSaveAirport().....");
-		
+
+	@PostMapping("/adminSaveRole")
+	public String adminSaveRole(@Valid @ModelAttribute Role role, BindingResult br, Model model) {
+		log.debug("AdminRoleController.adminSaveRole().....");
+
 		if (!br.hasErrors()) {
-			airportService.save(airport);
-			model.addAttribute("airport", new Airport());
+			roleService.save(role);
+			model.addAttribute("role", new Role());
 		}
-		
+
 		airUtil.buildModel(model);
 		return "admin";
 	}
-	
-	@RequestMapping("/adminUpdateAirport")
-	public String adminUpdateAirport(Airport airport, @RequestParam long airportId, Model model) {
-		log.debug("AdminAirportController.adminUpdateAirport().....");
-		
-		if (airportService.existsById(airportId)) {
-			model.addAttribute("airport", airportService.findById(airportId));
+
+	@RequestMapping("/adminUpdateRole")
+	public String adminUpdateRole(Role role, @RequestParam long roleId, Model model) {
+		log.debug("AdminRoleController.adminUpdateRole().....");
+
+		if (roleService.existsById(roleId)) {
+			model.addAttribute("role", roleService.findById(roleId));
 		} else {
-			model.addAttribute("airport", new Airport());
+			model.addAttribute("role", new Role());
 		}
-		
+
 		airUtil.buildModel(model);
 		return "admin";
 	}
-	
-	@RequestMapping("/adminDeleteAirport")
-	public String adminDeleteAirport(Airport airport, @RequestParam long airportId, Model model) {
-		log.debug("AdminAirportController.adminDeleteAirport().....");
-		
-		airportService.deleteById(airportId);
-		model.addAttribute("airport", new Airport());
+
+	@RequestMapping("/adminDeleteRole")
+	public String adminDeleteRole(Role role, @RequestParam long roleId, Model model) {
+		log.debug("AdminRoleController.adminDeleteRole().....");
+
+		roleService.deleteById(roleId);
+		model.addAttribute("role", new Role());
 		airUtil.buildModel(model);
-		
+
 		return "admin";
 	}
-	
-	
+
 	// --- MODEL ATTRIBUTES ---
 	@ModelAttribute
 	public Role role() {
 		return new Role();
 	}
-	
+
 	@ModelAttribute
 	public User user() {
 		return new User();
 	}
-	
+
 	@ModelAttribute
 	public Flight flight() {
 		return new Flight();
 	}
-	
+
 	@ModelAttribute
 	public Airport airport() {
 		return new Airport();
 	}
-	
+
 	@ModelAttribute
 	public Airline airline() {
 		return new Airline();
 	}
-	
+
 	@ModelAttribute
 	public Customer customer() {
 		return new Customer();

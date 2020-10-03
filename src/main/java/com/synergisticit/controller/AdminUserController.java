@@ -16,6 +16,7 @@ import com.synergisticit.domain.Airline;
 import com.synergisticit.domain.Airport;
 import com.synergisticit.domain.Customer;
 import com.synergisticit.domain.Flight;
+import com.synergisticit.domain.Role;
 import com.synergisticit.domain.User;
 import com.synergisticit.service.UserService;
 import com.synergisticit.utilities.AirlineUtilities;
@@ -90,6 +91,11 @@ public class AdminUserController {
 	
 	
 	// --- MODEL ATTRIBUTES ---
+	@ModelAttribute
+	public Role role() {
+		return new Role();
+	}
+	
 	@ModelAttribute
 	public User user() {
 		return new User();
