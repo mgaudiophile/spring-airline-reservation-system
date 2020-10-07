@@ -69,26 +69,12 @@
 					
 					<br>
 					<hr>
-					<br>
-					<div class="mx-auto" style="width: 900px;">
-					<table class="table table-sm">
-						<thead class="thead-light">
-							<tr>
-								<th>Passenger</th>
-								<th>Mobile#</th>
-								<th>Email</th>
-							</tr>
-						</thead>
-
+					<p class="lead" style="color:green;font-weight:bold;">Travelers:</p>
+					<ul class="list-group">
 						<c:forEach items="${ ticket.passengers }" var="p">
-							<tr>
-								<td>${ p.name }</td>
-								<td>${ p.mobile }</td>
-								<td>${ p.email }</td>
-							</tr>
+							<li class="list-group-item">${ p.name } &emsp;&middot;&emsp; ${ p.email } &emsp;&middot;&emsp; ${ p.mobile }</li>
 						</c:forEach>
-					</table>
-					</div>
+					</ul>
 				
 				</div><!-- end card body -->
 			</div><!-- end card -->

@@ -36,6 +36,7 @@ public class AdminCustomerValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "customerAddress.addressLine1", "empty", "Address Line 1 is required.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "customerAddress.city", "empty", "City is required.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "customerAddress.state", "empty", "State is required.");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "customerAddress.zip", "empty", "Zip is required.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "phone", "empty", "Phone is required.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "empty", "Email is required.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "ssn", "empty", "SSN is required.");

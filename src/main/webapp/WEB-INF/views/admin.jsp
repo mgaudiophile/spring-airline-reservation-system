@@ -482,6 +482,11 @@ $(document).ready(function() {
 									cssClass="error" /></td>
 						</tr>
 						<tr>
+							<td>Zip:</td>
+							<td><frm:input path="customerAddress.zip" /></td>
+							<td><frm:errors path="customerAddress.zip" cssClass="error" /></td>
+						</tr>
+						<tr>
 							<td>Phone:</td>
 							<td><frm:input path="phone" /></td>
 							<td><frm:errors path="phone" cssClass="error" /></td>
@@ -518,13 +523,14 @@ $(document).ready(function() {
 				<table class="table table-sm table-striped">
 					<thead class="thead-dark">
 						<tr>
-							<th>Customer Id</th>
+							<th>Id</th>
 							<th>Name</th>
 							<th>User Id</th>
 							<th>Address Line 1</th>
 							<th>Address Line 2</th>
 							<th>City</th>
 							<th>State</th>
+							<th>Zip</th>
 							<th>Mobile</th>
 							<th>Email</th>
 							<th>SSN</th>
@@ -543,6 +549,7 @@ $(document).ready(function() {
 							<td>${ customer.customerAddress.addressLine2 }</td>
 							<td>${ customer.customerAddress.city }</td>
 							<td>${ customer.customerAddress.state }</td>
+							<td>${ customer.customerAddress.zip }</td>
 							<td>${ customer.phone }</td>
 							<td>${ customer.email }</td>
 							<td>${ customer.ssn }</td>

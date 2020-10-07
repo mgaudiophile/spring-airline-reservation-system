@@ -32,6 +32,7 @@ import com.synergisticit.service.AirlineService;
 import com.synergisticit.service.AirportService;
 import com.synergisticit.service.CustomerService;
 import com.synergisticit.service.FlightService;
+import com.synergisticit.service.MailService;
 import com.synergisticit.service.PassengerService;
 import com.synergisticit.service.RoleService;
 import com.synergisticit.service.TicketService;
@@ -52,6 +53,7 @@ public class AirlineUtilities {
 	private CustomerService customerService;
 	private TicketService ticketService;
 	private PassengerService passengerService;
+	private MailService mailService;
 	
 	private List<Passenger> passengers = new ArrayList<>();
 	
@@ -63,7 +65,8 @@ public class AirlineUtilities {
 							AirlineService airlineService,
 							CustomerService customerService,
 							TicketService ticketService,
-							PassengerService passengerService) {
+							PassengerService passengerService,
+							MailService mailService) {
 		
 		this.roleService = roleService;
 		this.userService = userService;
@@ -73,6 +76,7 @@ public class AirlineUtilities {
 		this.customerService = customerService;
 		this.ticketService = ticketService;
 		this.passengerService = passengerService;
+		this.mailService = mailService;
 	}
 	
 	public void buildModel(Model model) {
@@ -159,31 +163,33 @@ public class AirlineUtilities {
 		Ticket t = new Ticket();
 		t.setCustomer(getCurrentCustomer());
 		
-		
 		t.setFlight(flightService.findById(flightId));
 		t.setTotal(payment.getTotal());
 		
 		Ticket tDb = ticketService.save(t);
-		
+	
 		for (Passenger p : passengers) {
+			sendItinerary(p, tDb.getFlight());
 			p.setTicket(tDb);
 			passengerService.save(p);
 		}
 		
-		//sendItinerary(flightId);
 		resetPassengers();
 	}
 	
-//	public void sendItinerary(Long flightId) {
-//		Flight f = flightService.findById(flightId);
-//		
-//		for (Passenger p : passengers) {
-//			String email = p.getEmail();
-//			String subject = "Itinerary";
-//			String msg = "Flight Number: " + f.getFlightNumber();
-//		}
-//		mailService.sendEmail(email, subject, msg)
-//	}
+	public void sendItinerary(Passenger p, Flight flight) {
+		
+		String subject = "Itinerary";
+		StringBuilder sb = new StringBuilder();
+		sb.append("traveler: " + p.getName() + "\n");
+		sb.append("departure on: " + flight.getPrettyFlight().getDate() + "\n");
+		sb.append("depart: " + flight.getPrettyFlight().getDepart() + " " + flight.getDepartFrom().getAirportName() + "  -  " + flight.getDepartFrom().getAirportCode() + "\n");
+		sb.append("arrive: " + flight.getPrettyFlight().getArrive() + " " + flight.getArriveAt().getAirportName() + "  -  " + flight.getArriveAt().getAirportCode() + "\n");
+		sb.append("airline: " + flight.getAirline().getAirlineName() + "\n");
+		sb.append("flight: " + flight.getFlightNumber());
+		
+		mailService.sendEmail(p.getEmail(), subject, sb.toString());
+	}
 	
 	public List<Flight> searchFlights(Search search) {
 		log.debug("AirlineUtilities.searchFlights().....");

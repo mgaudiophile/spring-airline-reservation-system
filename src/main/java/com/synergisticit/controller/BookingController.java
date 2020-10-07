@@ -82,6 +82,7 @@ public class BookingController {
 		if (!br.hasErrors()) {
 			airUtil.purchaseTicket(payment, (Long) session.getAttribute("flightId"));
 			model.addAttribute("payment", new Payment());
+			airUtil.buildCustomerModel(model);
 			return "itinerary";
 		}
 		
