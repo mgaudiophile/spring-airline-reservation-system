@@ -63,6 +63,7 @@ public class RestRoleController {
 	
 	@GetMapping("/api/role/{id}")
 	public ResponseEntity<?> apiGetRoleById(@PathVariable("id") long id) {
+		log.debug("RestRoleController.apiGetRoleById().....");
 		
 		if (roleService.existsById(id)) {
 			return new ResponseEntity<Role>(roleService.findById(id), HttpStatus.OK);
@@ -72,6 +73,7 @@ public class RestRoleController {
 	
 	@PostMapping(value = "/api/role", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> apiSaveRole(@Valid @RequestBody Role role, BindingResult br) {
+		log.debug("RestRoleController.apiSaveRole().....");
 		
 		if (!br.hasErrors()) {
 			if (!roleService.existsById(role.getRoleId())) {
@@ -85,6 +87,7 @@ public class RestRoleController {
 	
 	@PutMapping(value = "/api/role", consumes=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> apiUpdateRole(@Valid @RequestBody Role role, BindingResult br) {
+		log.debug("RestRoleController.apiUpdateRole().....");
 		
 		if (roleService.existsById(role.getRoleId())) {
 			if (!br.hasErrors()) {
@@ -102,6 +105,7 @@ public class RestRoleController {
 	
 	@DeleteMapping(value = "/api/role/{id}")
 	public ResponseEntity<?> apiDeleteRole(@PathVariable("id") long id) {
+		log.debug("RestRoleController.apiDeleteRole().....");
 		
 		if (roleService.existsById(id)) {
 			roleService.deleteById(id);

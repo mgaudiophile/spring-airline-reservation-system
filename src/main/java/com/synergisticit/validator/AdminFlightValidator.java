@@ -50,6 +50,11 @@ public class AdminFlightValidator implements Validator {
 		if (flight.getArriveAt().getAirportId() != null && !airportService.existsById(flight.getArriveAt().getAirportId())) {
 			errors.rejectValue("arriveAt.airportId", "dne", "Airport Id does not exist");
 		}
+		
+		if (flight.getDepartFrom().getAirportId() != null && flight.getArriveAt().getAirportId() != null && 
+				flight.getDepartFrom().getAirportId() == flight.getArriveAt().getAirportId()) {
+			errors.rejectValue("arriveAt.airportId", "dup", "Choose a different airport.");
+		}
 	}
 
 }

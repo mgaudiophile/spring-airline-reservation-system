@@ -218,18 +218,33 @@ $(document).ready(function() {
 							<td><frm:errors path="flightNumber" cssClass="error" /></td>
 						</tr>
 						<tr>
-							<td>Airline Id:</td>
-							<td><frm:input path="airline.airlineId" /></td>
+							<td>Airline:</td>
+							<td><frm:select class="form-control" path="airline.airlineId">
+								<c:forEach items="${ airlines }" var="airline">
+									<frm:option value="${ airline.airlineId }" label="${ airline.airlineName }" />
+								</c:forEach>
+								</frm:select>
+							</td>
 							<td><frm:errors path="airline.airlineId" cssClass="error" /></td>
 						</tr>
 						<tr>
-							<td>Departure Airport Id:</td>
-							<td><frm:input path="departFrom.airportId" /></td>
+							<td>Depart From:</td>
+							<td><frm:select class="form-control" path="departFrom.airportId">
+								<c:forEach items="${ airports }" var="airport">
+									<frm:option value="${ airport.airportId }" label="${ airport.airportCode }" />
+								</c:forEach>
+								</frm:select>
+							</td>
 							<td><frm:errors path="departFrom.airportId" cssClass="error" /></td>
 						</tr>
 						<tr>
-							<td>Arrival Airport Id:</td>
-							<td><frm:input path="arriveAt.airportId" /></td>
+							<td>Arrive At:</td>
+							<td><frm:select class="form-control" path="arriveAt.airportId">
+								<c:forEach items="${ airports }" var="airport">
+									<frm:option value="${ airport.airportId }" label="${ airport.airportCode }" />
+								</c:forEach>
+								</frm:select>
+							</td>
 							<td><frm:errors path="arriveAt.airportId" cssClass="error" /></td>
 						</tr>
 						<tr>

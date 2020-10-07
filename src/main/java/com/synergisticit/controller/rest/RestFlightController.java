@@ -1,5 +1,6 @@
 package com.synergisticit.controller.rest;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -16,11 +17,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.synergisticit.domain.Airline;
 import com.synergisticit.domain.Airport;
 import com.synergisticit.domain.Flight;
+import com.synergisticit.domain.Search;
 import com.synergisticit.service.AirlineService;
 import com.synergisticit.service.AirportService;
 import com.synergisticit.service.FlightService;
@@ -79,6 +82,29 @@ public class RestFlightController {
 			return new ResponseEntity<Flight>(flightService.findById(id), HttpStatus.OK);
 		}
 		return new ResponseEntity<String>("flight with id: " + id + " not found", HttpStatus.NOT_FOUND); 
+	}
+	
+	@GetMapping("/api/flight/search")
+	public ResponseEntity<?> apiSearchFlights(@RequestParam String departCode, 
+												@RequestParam String arriveCode, 
+												@RequestParam String depart, 
+												@RequestParam Long tickets) {
+		
+		Search search = new Search();
+		search.setFromInput(departCode);
+		search.setToInput(arriveCode);
+		
+		LocalDate date = LocalDate.parse(depart);
+		
+		search.setDepart(date);
+		search.setTickets(tickets);
+		
+		List<Flight> flights = airUtil.searchFlights(search);
+		if (flights.isEmpty()) {
+			return new ResponseEntity<String>("no flights found", HttpStatus.NO_CONTENT);
+		}
+
+		return new ResponseEntity<List<Flight>>(flights, HttpStatus.FOUND);
 	}
 	
 	@PostMapping(value = "/api/flight", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)

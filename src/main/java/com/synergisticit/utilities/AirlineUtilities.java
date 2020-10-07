@@ -264,6 +264,26 @@ public class AirlineUtilities {
 		customerService.save(customer);
 	}
 	
+	public Ticket restPurchaseTicket(Payment payment, long customerId, long flightId) {
+		Ticket t = new Ticket();
+		t.setCustomer(customerService.findById(customerId));
+		
+		
+		t.setFlight(flightService.findById(flightId));
+		t.setTotal(passengers.size() * t.getFlight().getPrice());
+		
+		Ticket tDb = ticketService.save(t);
+		
+		for (Passenger p : passengers) {
+			p.setTicket(tDb);
+			passengerService.save(p);
+		}
+		
+		//sendItinerary(flightId);
+		resetPassengers();
+		return tDb;
+	}
+	
 	public String getValidationErrors(BindingResult br) {
 		
 		StringBuilder sb = new StringBuilder();
@@ -273,7 +293,7 @@ public class AirlineUtilities {
 		return sb.toString();
 	}
 	
-	private Map<String, String> buildAirportMap(List<String> codes, List<String> names) {
+	public Map<String, String> buildAirportMap(List<String> codes, List<String> names) {
 		Map<String, String> map = new HashMap<>();
 		for (int i = 0; i < codes.size(); i++) {
 			map.put(codes.get(i), names.get(i) + " -- (" + codes.get(i) + ")");

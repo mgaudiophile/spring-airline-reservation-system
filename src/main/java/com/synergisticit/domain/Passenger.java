@@ -12,6 +12,8 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.Data;
 
 @Data
@@ -33,5 +35,6 @@ public class Passenger {
 	
 	@OneToOne
 	@JoinColumn(name = "ticketId")
+	@JsonBackReference
 	private Ticket ticket;
 }
